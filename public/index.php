@@ -1,15 +1,18 @@
 <?php
 
-define('ROOT', dirname(__DIR__));
-require ROOT . '/app/App.php';
-App::load();
+require '../app/Autoloader.php';
+App\Autoloader::register();
 
 if(isset($_GET['p'])) {
 
-    $page = $_GET['p'];
+    $p = $_GET['p'];
 
 } else {
 
-    $page = 'stories.index';
+    $p = 'home';
+}
+
+if ($p === 'home') {
+    require '../pages/home.php';
 }
 
