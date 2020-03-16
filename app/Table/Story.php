@@ -10,7 +10,9 @@ class Story {
     }
 
     public function getExcerpt() {
-        return $this->content;
+        $html = '<p>' . substr($this->content, 0, 250) . '</p>';
+        $html .= '<p><a href="' . $this->getURL() . '">Voir la suite</a></p>';
+        return $html;
     }
 
 }
