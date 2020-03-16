@@ -32,9 +32,9 @@ class Database{
         return $pdo;
     }
 
-    public function query($statement) {
+    public function query($statement, $class_name) {
         $req = $this->getPDO()->query($statement);
-        $datas = $req->fetchAll(PDO::FETCH_OBJ);
+        $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
         return $datas;
 
     }
