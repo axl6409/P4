@@ -12,6 +12,8 @@ if(isset($_GET['p'])) {
     $p = 'home';
 }
 
+// Initialisation des objets
+$db = new App\Database('jeanforteroche');
 
 ob_start();
 if ($p === 'home') {
