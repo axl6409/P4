@@ -1,8 +1,12 @@
 
-<ul>
-    <?php foreach($db->query('SELECT * FROM stories') as $story) : ?>
-        <li>
-            <a href="index.php?p=story$id=<?= $story->id; ?>"><?= $story->title; ?></a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+
+<?php foreach($db->query('SELECT * FROM stories', 'App\Table\Story') as $story) : ?>
+
+
+    <h2><a href="<?php $story->getURL(); ?>"><?= $story->title; ?></a></h2>
+
+    <p><?php $story->getExcerpt(); ?></p>
+
+
+<?php endforeach; ?>
+
