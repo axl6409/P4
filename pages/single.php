@@ -1,1 +1,7 @@
-<h2>Single Page</h2>
+<?php
+$story = $db->prepare('SELECT * FROM stories WHERE id = ?', [$_GET['id']], 'App\Table\Story', true);
+
+?>
+
+<h1><?= $story->title; ?></h1>
+<p><?= $story->content; ?></p>
