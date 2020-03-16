@@ -12,3 +12,4 @@ if(isset($_GET['p'])) {
 
     $page = 'stories.index';
 }
+
