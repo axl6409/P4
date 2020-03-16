@@ -23,9 +23,12 @@ class Database{
     }
 
     private function getPDO() {
-        $pdo = new PDO('mysql:dbname=jeanforteroche;host=localhost', 'root', '');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->pdo = $pdo;
+        if($this->pdo === null) {
+            $pdo = new PDO('mysql:dbname=jeanforteroche;host=localhost', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
+        }
+
         return $pdo;
     }
 
