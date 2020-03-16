@@ -4,9 +4,17 @@ namespace App\Table;
 
 class Story {
 
+    public function __get($key) {
+
+        $method = 'get' . ucfirst($key);
+        $this->$key = $this->$method();
+        return $this->$method();
+
+    }
+
     public function getURL() {
 
-        return 'index.php?p=story$id=' . $this->id;
+        return 'index.php?p=single&id=' . $this->id;
     }
 
     public function getExcerpt() {
