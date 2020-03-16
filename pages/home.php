@@ -1,3 +1,5 @@
-<h1>Home Page</h1>
+<?php
 
-<a href="index.php?p=single"><p>Single</p></a>
+$db = new App\Database('jeanforteroche');
+$datas = $db->query('SELECT * FROM stories');
+var_dump($datas);
