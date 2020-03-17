@@ -12,7 +12,7 @@ class Story {
 
     public function getURL() {
 
-        return 'index.php?p=story$id=' . $this->id;
+        return 'index.php?p=story&id=' . $this->id;
     }
 
     public function getExcerpt() {
