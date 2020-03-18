@@ -1,5 +1,5 @@
 <?php
-$story = $db->prepare('SELECT * FROM stories WHERE id = ?', [$_GET['id']], 'App\Table\Story', true);
+$story = App\App::getDb()->prepare('SELECT * FROM stories WHERE id = ?', [$_GET['id']], 'App\Table\Story', true);
 
 ?>
 
