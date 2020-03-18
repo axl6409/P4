@@ -2,7 +2,13 @@
 
 namespace App\Table;
 
+use App\App;
+
 class Story {
+
+    public static function getLast() {
+        return App::getDb()->query('SELECT * FROM stories', __CLASS__);
+    }
 
     public function __get($key) {
         $method = 'get' . ucfirst($key);
