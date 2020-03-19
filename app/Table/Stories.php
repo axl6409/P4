@@ -7,12 +7,12 @@ use App\App;
 class Stories extends table {
 
     public static function getLast() {
-        return App::getDb()->query("
+        return self::query("
             SELECT stories.id, stories.title, stories.content, categories.title as categorie 
             FROM stories 
             LEFT JOIN categories 
                 ON category_id = categories.id
-        ", __CLASS__);
+        ");
     }
 
     public function __get($key) {

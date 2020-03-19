@@ -16,7 +16,7 @@
         <ul>
         <?php foreach(\App\Table\Comment::all() as $comment) : ?>
             <li>
-                <a href="<?= $comment->url; ?>"><p><?= $comment->content; ?></p></a>
+                <p><?= $comment->content; ?></p>
             </li>
         <?php endforeach; ?>
         </ul>
