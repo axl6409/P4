@@ -5,8 +5,6 @@
 
             <h2><a href="<?= $story->url; ?>"><?= $story->title; ?></a></h2>
 
-            <p><em><?= $story->categorie; ?></em></p>
-
             <p><?= $story->excerpt; ?></p>
 
 
@@ -16,9 +14,9 @@
 
     <div class="col-sm-4">
         <ul>
-        <?php foreach(\App\Table\Categorie::all() as $categorie) : ?>
+        <?php foreach(\App\Table\Comment::all() as $comment) : ?>
             <li>
-                <a href="<?= $categorie->url; ?>"><?= $categorie->title; ?></a>
+                <a href="<?= $comment->url; ?>"><p><?= $comment->content; ?></p></a>
             </li>
         <?php endforeach; ?>
         </ul>
