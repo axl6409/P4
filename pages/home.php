@@ -5,7 +5,7 @@
 
             <h2><a href="<?= $story->url; ?>"><?= $story->title; ?></a></h2>
 
-            <p><em><?= $story->category; ?></em></p>
+            <p><em><?= $story->categorie; ?></em></p>
 
             <p><?= $story->excerpt; ?></p>
 
@@ -15,9 +15,13 @@
     </div>
 
     <div class="col-sm-4">
-
-
-
+        <ul>
+        <?php foreach(\App\Table\Categorie::all() as $categorie) : ?>
+            <li>
+                <a href="<?= $categorie->url; ?>"><?= $categorie->title; ?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
     </div>
 </div>
 
