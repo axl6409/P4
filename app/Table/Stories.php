@@ -4,7 +4,7 @@ namespace App\Table;
 
 use App\App;
 
-class Story {
+class Stories {
 
     public static function getLast() {
         return App::getDb()->query('SELECT * FROM stories', __CLASS__);
@@ -17,7 +17,6 @@ class Story {
     }
 
     public function getURL() {
-
         return 'index.php?p=single&id=' . $this->id;
     }
 

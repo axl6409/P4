@@ -36,7 +36,6 @@ class Database{
         $req = $this->getPDO()->query($statement);
         $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
         return $datas;
-
     }
 
     public function prepare($statement, $attributes, $class_name, $one = false) {

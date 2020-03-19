@@ -1,12 +1,24 @@
+<div class="row">
+    <div class="col-sm-8">
+
+        <?php foreach(\App\Table\Stories::getLast() as $story) : ?>
 
 
-<?php foreach(\App\Table\Story::getLast() as $story) : ?>
+            <h2><a href="<?= $story->url; ?>"><?= $story->title; ?></a></h2>
+
+            <p><?= $story->excerpt; ?></p>
 
 
-    <h2><a href="<?= $story->url; ?>"><?= $story->title; ?></a></h2>
+        <?php endforeach; ?>
 
-    <p><?= $story->excerpt; ?></p>
+    </div>
+
+    <div class="col-sm-4">
 
 
-<?php endforeach; ?>
+
+    </div>
+</div>
+
+
 
