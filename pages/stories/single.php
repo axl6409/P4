@@ -1,19 +1,30 @@
 <?php
 
-use App\App;
-use App\Table\Comments;
-use App\Table\Stories;
+$app = App::getInstance();
+$post = $app->getTable('Post')->find($_GET['id']);
 
-$story = Stories::find($_GET['id']);
-if($story === false) {
-    App::notFound();
+if($post === false) {
+
+    $app->notFound();
+
 }
 
-App::setTitle($story->title);
+$app->title = $post->title;
 
 ?>
 
-<h1><?= $story->title; ?></h1>
-<p><?= $story->content; ?></p>
+<h1><?= $post->title; ?></h1>
+<p><?= $post->content; ?></p>
+
+<ul>
+    <?php foreach(App::getInstance()->getTable('Comment')->lastByStory($_GET['id']) as $comment) : ?>
+
+        <li>
+            <p><?php $comment->content; ?></p>
+        </li>
+
+    <?php endforeach; ?>
+
+</ul>
 
 

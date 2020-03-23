@@ -6,7 +6,9 @@ namespace App\Table;
 
 use Core\Table\Table;
 
-class StoriesTable extends Table {
+class PostTable extends Table {
+
+    protected $table = 'posts';
 
     /**
      * Get last stories
@@ -15,9 +17,11 @@ class StoriesTable extends Table {
     public function last() {
         return $this->query("
             SELECT *
-            FROM stories
+            FROM posts
             ORDER BY date DESC 
         ");
     }
+
+
 
 }
