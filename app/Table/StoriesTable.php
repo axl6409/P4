@@ -4,6 +4,6 @@
 namespace App\Table;
 
 
-class StoriesTable {
+class StoriesTable extends Table {
 
 }

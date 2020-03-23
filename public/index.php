@@ -6,7 +6,7 @@ App\Autoloader::register();
 $app = App\App::getInstance();
 
 $stories = $app->getTable('Stories');
-$stories = $app->getTable('Comments');
+var_dump($stories->all());
 
 
 
