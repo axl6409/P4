@@ -24,4 +24,10 @@ class Table {
         return $this->db->query('SELECT * FROM stories');
     }
 
+    public function query($statement, $attributes = null, $one = false) {
+        if ($attributes) {
+            $this->db->prepare($statement, $attributes);
+        }
+    }
+
 }

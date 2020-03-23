@@ -1,5 +1,8 @@
 <?php
 
+use Core\Config;
+use Core\Database\MysqlDatabase;
+
 class App {
 
     public $title = "Jean Forteroche";
@@ -31,7 +34,7 @@ class App {
 
     // Singleton
     public function getDb() {
-        $config = Config::getInstance();
+        $config = Config::getInstance(ROOT . '/config/config.php');
         if (is_null($this->db_instance)) {
             $this->db_instance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
         }
