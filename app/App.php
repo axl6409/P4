@@ -10,6 +10,7 @@ class App {
     const DB_HOST = 'localhost';
 
     private static $database;
+    private static $title;
 
     public static function getDb() {
         if( self::$database === null) {
@@ -17,4 +18,11 @@ class App {
         }
         return self::$database;
     }
+
+    public static function notFound(){
+        header('HTTTP/1.0 404 Not Found');
+        header('Location:index.php?p=404');
+    }
+
+    
 }
