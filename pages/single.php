@@ -9,6 +9,8 @@ if($story === false) {
     App::notFound();
 }
 
+App::setTitle($story->title);
+
 ?>
 
 <h1><?= $story->title; ?></h1>
