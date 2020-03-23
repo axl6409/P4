@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Core\Database;
 
 // use the PHP PDO at ROOT
 use \PDO;
