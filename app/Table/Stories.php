@@ -6,6 +6,8 @@ use App\App;
 
 class Stories extends table {
 
+    protected static $table = 'stories';
+
     public static function getLast() {
         return self::query("
             SELECT stories.id, stories.title, stories.content

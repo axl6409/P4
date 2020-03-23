@@ -6,21 +6,10 @@ use App\App;
 
 class Table {
 
-    protected static $table;
-
-    private static function getTable() {
-        if(static::$table === null) {
-            $class_name = explode('\\', get_called_class());
-            static::$table = strtolower(end($class_name));
-
-        }
-        return static::$table;
-    }
-
     public static function find($id) {
         return App::getDb()->prepare("
             SELECT * 
-            FROM " . static::getTable() . "
+            FROM " . static::$table . "
             WHERE id = ?
         ", [$id], get_called_class(), true);
     }
@@ -36,7 +25,7 @@ class Table {
     public static function all() {
         return App::getDb()->query("
             SELECT * 
-            FROM " . static::getTable() . "
+            FROM " . static::$table . "
         ", get_called_class());
     }
 
