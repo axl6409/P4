@@ -8,10 +8,9 @@ class Stories extends table {
 
     public static function getLast() {
         return self::query("
-            SELECT stories.id, stories.title, stories.content, categories.title as categorie 
+            SELECT stories.id, stories.title, stories.content
             FROM stories 
-            LEFT JOIN categories 
-                ON category_id = categories.id
+            ORDER BY date DESC
         ");
     }
 

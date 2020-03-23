@@ -9,8 +9,8 @@ class App {
     const DB_PASS = '';
     const DB_HOST = 'localhost';
 
+    private static $title = "Jean Forteroche";
     private static $database;
-    private static $title;
 
     public static function getDb() {
         if( self::$database === null) {
@@ -24,5 +24,12 @@ class App {
         header('Location:index.php?p=404');
     }
 
-    
+    public static function getTitle() {
+        return self::$title;
+    }
+
+
+    public static function setTitle() {
+        self::$title = $title;
+    }
 }

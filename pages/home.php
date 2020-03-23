@@ -14,7 +14,7 @@
 
     <div class="col-sm-4">
         <ul>
-        <?php foreach(\App\Table\Comment::all() as $comment) : ?>
+        <?php foreach(\App\Table\Comments::all() as $comment) : ?>
             <li>
                 <p><?= $comment->content; ?></p>
             </li>

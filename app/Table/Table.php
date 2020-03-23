@@ -11,7 +11,7 @@ class Table {
     private static function getTable() {
         if(static::$table === null) {
             $class_name = explode('\\', get_called_class());
-            static::$table = strtolower(end($class_name)) . 's';
+            static::$table = strtolower(end($class_name));
 
         }
         return static::$table;

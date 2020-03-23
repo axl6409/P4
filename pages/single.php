@@ -1,5 +1,13 @@
 <?php
-$story = App\App::getDb()->prepare('SELECT * FROM stories WHERE id = ?', [$_GET['id']], 'App\Table\Stories', true);
+
+use App\App;
+use App\Table\Comments;
+use App\Table\Stories;
+
+$story = Stories::find($_GET['id']);
+if($story === false) {
+    App::notFound();
+}
 
 ?>
 
