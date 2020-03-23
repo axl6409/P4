@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Core;
 
 class Config {
 
@@ -8,16 +8,15 @@ class Config {
     private static $_instance; // Static variable
 
     // Singleton
-    public static function getInstance() {
+    public static function getInstance($file) {
         if (is_null(self::$_instance)) {
-            self::$_instance = new Config();
+            self::$_instance = new Config($file);
         }
         return self::$_instance;
     }
 
-    public function __construct() {
-        $this->id = uniqid();
-        $this->settings = require dirname(__DIR__) . '/config/config.php';
+    public function __construct($file) {
+        $this->settings = require($file);
 
     }
 

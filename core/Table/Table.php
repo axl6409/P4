@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Table;
+namespace Core\Table;
+
+use Core\Database\Database;
 
 class Table {
 
     protected $table;
     protected $db;
 
-    public function __construct(\App\Database\Database $db) {
+    public function __construct(Database $db) {
 
         $this->db = $db;
         if (is_null($this->table)) {

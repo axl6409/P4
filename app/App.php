@@ -1,9 +1,5 @@
 <?php
 
-namespace App;
-
-use App\Database\MysqlDatabase;
-
 class App {
 
     public $title = "Jean Forteroche";
@@ -17,6 +13,15 @@ class App {
         }
 
         return self::$_instance;
+    }
+
+    public static function load() {
+        session_start();
+        require ROOT . '/app/Autoloader.php';
+        App\Autoloader::register();
+        require ROOT . '/core/Autoloader.php';
+        Core\Autoloader::register();
+
     }
 
     public function getTable($name) {

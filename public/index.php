@@ -1,9 +1,9 @@
 <?php
-session_start();
-require '../app/Autoloader.php';
-App\Autoloader::register();
+define('ROOT', dirname(__DIR__));
+require ROOT . 'app/App.php';
+App::load();
 
-$app = App\App::getInstance();
+$app = App::getInstance();
 
 $stories = $app->getTable('Stories');
 var_dump($stories->all());
