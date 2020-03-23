@@ -22,6 +22,7 @@ class App {
         return new $class_name();
     }
 
+    // Singleton
     public function getDb() {
         $config = Config::getInstance();
         if (is_null($this->db_instance)) {
