@@ -6,4 +6,4 @@ return array (
     "db_pass" => "",
     "db_host" => "localhost",
     "db_name" => "jeanforteroche"
-)
+);
