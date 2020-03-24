@@ -9,16 +9,13 @@ if (isset($_GET['p'])) {
     $page = 'home';
 }
 
-ob_start();
-
 if ($page === 'home') {
-    require ROOT . '/pages/posts/home.php';
+    $controller = new \App\Controller\PostsController();
+    $controller->index();
 } elseif ($page === 'posts.single') {
-    require ROOT . '/pages/posts/single.php';
+    $controller = new \App\Controller\PostsController();
+    $controller->show();
 } elseif ($page === 'login') {
-    require ROOT . '/pages/users/login.php';
+    $controller = new \App\Controller\UsersController();
+    $controller->login();
 }
-
-
-$content = ob_get_clean();
-require ROOT . '/pages/templates/default.php';
