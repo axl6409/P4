@@ -3,14 +3,18 @@
 namespace App\Controller;
 
 use Core\Controller\Controller;
-use \App;
 
 class PostsController extends AppController {
 
+    public function __construct() {
+        parent::__construct();
+        $this->loadModel('Post');
+        $this->loadModel('Comment');
+    }
 
     public function index() {
-        $posts = App::getInstance()->getTable('Post')->last();
-        $comments = App::getInstance()->getTable('Comment')->all();
+        $posts = $this->Post->last();
+        $comments = $this->Comment->all();
         $this->render('posts.index', compact('posts', 'comments'));
     }
 
