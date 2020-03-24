@@ -12,10 +12,13 @@ if (isset($_GET['p'])) {
 ob_start();
 
 if ($page === 'home') {
-    require ROOT . '/pages/stories/home.php';
+    require ROOT . '/pages/posts/home.php';
 } elseif ($page === 'posts.single') {
-    require ROOT . '/pages/stories/single.php';
+    require ROOT . '/pages/posts/single.php';
+} elseif ($page === 'login') {
+    require ROOT . '/pages/users/login.php';
 }
+
 
 $content = ob_get_clean();
 require ROOT . '/pages/templates/default.php';

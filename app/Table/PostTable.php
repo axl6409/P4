@@ -11,7 +11,7 @@ class PostTable extends Table {
     protected $table = 'posts';
 
     /**
-     * Get last stories
+     * Get last posts
      * @return array
      */
     public function last() {
