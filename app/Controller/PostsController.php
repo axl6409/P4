@@ -19,6 +19,7 @@ class PostsController extends AppController {
     }
 
     public function show() {
-
+        $post = $this->Post->find($_GET['id']);
+        $this->render('posts.single', compact('post'));
     }
 }
