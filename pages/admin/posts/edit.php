@@ -6,10 +6,16 @@ use Core\Auth\DBAuth;
 $postTable = App::getInstance()->getTable('Post');
 
 if (!empty($_POST)) {
-    $postTable->update($_GET['id'], [
+    $result = $postTable->update($_GET['id'], [
             'title'     => $_POST['title'],
             'content'   => $_POST['content']
     ]);
+
+    if ($result) {
+        ?>
+        <div class="alert alert-success">L'article à bien été mis à jour</div>
+        <?php
+    }
 }
 
 $post = $postTable->find($_GET['id']);
