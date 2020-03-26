@@ -22,8 +22,8 @@ class BootstrapForm extends Form {
     public function input($name, $label, $options = []) {
         $type = isset($options['type']) ? $options['type'] : 'text';
         $label = '<label>' . $label . '</label>';
-        if($type === 'textarea') {
-            $input = '<textarea name="' . $name . '" class="form-control">' . $this->getValue($name) . '</textarea>';
+        if($type === 'editor') {
+            $input = '<div id="editor">' . $this->getValue($name) . '</div>';
         } else {
             $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
         }
