@@ -14,7 +14,7 @@ class CommentTable extends Table {
      * Récupere les derniers commentaires
      * @return array
      */
-    public function lastByStory($comment_id)
+    public function lastByStory($id)
     {
         return $this->query("
             SELECT comments.id, comments.content, posts.id as post
@@ -22,7 +22,7 @@ class CommentTable extends Table {
             LEFT JOIN posts ON post_id = posts.id
             WHERE comments.post_id = ?
             ORDER BY comments.date DESC
-        ", [$comment_id]);
+        ", [$id]);
     }
 
 }

@@ -41,7 +41,15 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php?p=users.login">Admin <span class="sr-only">(current)</span></a>
+
+                <?php if(isset($_SESSION['auth'])) { ?>
+                    <a class="nav-link" href="index.php?p=admin.posts.index">Admin</a>
+                    <span class="sr-only">(current)</span>
+                <?php } else { ?>
+                    <a class="nav-link" href="index.php?p=users.login">Loggin</a>
+                    <span class="sr-only">(current)</span>
+                <?php } ?>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?p=admin.comments.index">Commentaires</a>
@@ -58,10 +66,10 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <?php if(isset($_SESSION['auth'])) { ?>
+            <button class="btn btn-secondary" href="index.php?p=users.logout">Déconnexion</button>
+            <span class="sr-only">(current)</span>
+        <?php } ?>
     </div>
 </nav>
 

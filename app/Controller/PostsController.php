@@ -20,6 +20,7 @@ class PostsController extends AppController {
 
     public function single() {
         $post = $this->Post->find($_GET['id']);
-        $this->render('posts.single', compact('post'));
+        $comments = $this->Comment->lastByStory($_GET['id']);
+        $this->render('posts.single', compact('post', 'comments'));
     }
 }

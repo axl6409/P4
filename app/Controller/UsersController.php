@@ -24,4 +24,12 @@ class UsersController extends AppController {
         $this->render('users.login', compact('form', 'errors'));
 
     }
+
+    public function logout() {
+        if (!empty($_SESSION)) {
+            unset($_SESSION);
+            session_destroy();
+            header('Location: index.php');
+        }
+    }
 }
