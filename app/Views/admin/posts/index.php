@@ -1,10 +1,3 @@
-<?php
-
-$posts = App::getInstance()->getTable('Post')->all();
-
-
-?>
-
 
 <h1>Administrer les Histoires</h1>
 
