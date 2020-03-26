@@ -31,7 +31,7 @@ class PostsController extends AppController {
         }
 
         $form = new BootstrapForm($_POST);
-        $this->render('admin.posts.edit');
+        $this->render('admin.posts.edit', compact('form'));
     }
 
     public function edit() {
@@ -49,7 +49,7 @@ class PostsController extends AppController {
 
         $post = $this->Post->find($_GET['id']);
         $form = new BootstrapForm($post);
-        $this->render('admin.posts.edit');
+        $this->render('admin.posts.edit', compact('post', 'form'));
     }
 
     public function delete() {
