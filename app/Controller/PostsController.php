@@ -14,7 +14,7 @@ class PostsController extends AppController {
 
     public function index() {
         $posts = $this->Post->last();
-        $comments = $this->Comment->all();
+        $comments = $this->Comment->last();
         $this->render('posts.index', compact('posts', 'comments'));
     }
 
