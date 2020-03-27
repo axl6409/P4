@@ -13,14 +13,6 @@ class DBAuth {
     }
 
 
-    public function getUserId() {
-        if ($this->logged()) {
-            return $_SESSION['auth'];
-        }
-        return false;
-    }
-
-
     /**
      * @param $username
      * @param $password
@@ -31,11 +23,12 @@ class DBAuth {
         if ($user) {
             if ($user->password === sha1($password)) {
                 $_SESSION['auth'] = $user->id;
+                $_SESSION['role'] = $user->role;
+                $_SESSION['name'] = $user->username;
                 return true;
             }
         }
         return false;
-
     }
 
     public function logged() {
