@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Core\Controller\Controller;
+use Core\HTML\BootstrapForm;
 
 class PostsController extends AppController {
 
@@ -21,6 +22,11 @@ class PostsController extends AppController {
     public function single() {
         $post = $this->Post->find($_GET['id']);
         $comments = $this->Comment->lastByStory($_GET['id']);
-        $this->render('posts.single', compact('post', 'comments'));
+        $form = new BootstrapForm($_POST);
+        if (!empty($_POST)) {
+            $this->Comment->newComment($_POST['content'], $_SESSION['auth'], $_GET['id']);
+        }
+        $this->render('posts.single', compact('post', 'comments', 'form'));
+
     }
 }

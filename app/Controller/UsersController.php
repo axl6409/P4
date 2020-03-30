@@ -32,20 +32,30 @@ class UsersController extends AppController {
 
     public function signIn() {
 
+        $errors = false;
         if (!empty($_POST)) {
-            $result = $this->User->create([
-                'username'  => $_POST['username'],
-                'password'  => $_POST['password'],
-                'email'     => $_POST['email']
-            ]);
 
-            if ($result) {
-                return $this->index();
+            if ($_POST['password'] === $_POST['cfpassword']) {
+                $password = sha1($_POST['password']);
+                $auth = new DBAuth(App::getInstance()->getDb());
+                $result = $auth->signIn([
+                    'username'  => $_POST['username'],
+                    'password'  => $password,
+                    'mail'      => $_POST['mail'],
+                    'role_id'      => '2'
+                ]);
+                if ($result) {
+                    return $this->login($_POST['username'], $_POST['password']);
+                }
+
+            } else {
+                $errors = true;
             }
+
         }
 
         $form = new BootstrapForm($_POST);
-        $this->render('users.login', compact('form'));
+        $this->render('users.signIn', compact('form', 'errors'));
     }
 
     public function logout() {

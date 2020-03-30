@@ -23,15 +23,29 @@ class DBAuth {
         if ($user) {
             if ($user->password === sha1($password)) {
                 $_SESSION['auth'] = $user->id;
-                $_SESSION['role'] = $user->role;
                 $_SESSION['name'] = $user->username;
+                $_SESSION['role'] = $user->role_id;
                 return true;
             }
         }
         return false;
     }
 
+    public function signIn($fields) {
+        $sql_parts = [];
+        $attributes = [];
+        foreach ($fields as $k => $v) {
+            $sql_parts[] = "$k = ?";
+            $attributes[] = $v;
+        }
+        $sql_part = implode(', ', $sql_parts);
+        return $this->db->prepare("INSERT INTO users SET $sql_part", $attributes, true);
+    }
+
     public function logged() {
-        return isset($_SESSION['auth']);
+        if($_SESSION['role'] === '1') {
+            return isset($_SESSION['role']);
+        }
+
     }
 }

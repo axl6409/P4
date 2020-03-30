@@ -62,7 +62,9 @@
                             </div>
                         </li>
                     <?php } else { ?>
-                        <a class="nav-link" href="index.php?p=users.login">Loggin</a>
+                        <a class="nav-link" href="index.php?p=users.login">Login</a>
+                        <span class="sr-only">(current)</span>
+                        <a class="nav-link" href="index.php?p=users.signIn">SignIn</a>
                         <span class="sr-only">(current)</span>
                     <?php } ?>
 

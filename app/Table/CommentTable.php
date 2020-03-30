@@ -36,4 +36,12 @@ class CommentTable extends Table {
         ", [$id]);
     }
 
+    public function newComment($content, $userId, $postId) {
+        return $this->create([
+            'content'   => $content,
+            'user_id'   => $userId,
+            'post_id'   => $postId
+        ]);
+    }
+
 }

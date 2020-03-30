@@ -5,12 +5,12 @@
     </div>
 <?php } ?>
 
-<h2>Connexion</h2>
+<h2>Inscription</h2>
 <form method="post">
     <?= $form->input('username', 'pseudo'); ?>
     <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
+    <?= $form->input('cfpassword', 'confirmer le mot de passe', ['type' => 'password']); ?>
+    <?= $form->input('mail', 'mail'); ?>
     <button class="btn btn-primary">Envoyer</button>
 </form>
-
-
 
