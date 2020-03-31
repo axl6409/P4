@@ -57,7 +57,6 @@ class PostsController extends AppController {
         if (!empty($_POST)) {
             $result = $this->Post->delete($_POST['id']);
             return $this->index();
-
         }
 
     }

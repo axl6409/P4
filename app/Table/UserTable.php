@@ -6,9 +6,12 @@ use Core\Table\Table;
 
 class UserTable extends Table {
 
-    public function getUserByID($id) {
+    protected $table = 'users';
+
+
+    public function infos($id) {
         return $this->query("
-            SELECT users.username
+            SELECT *
             FROM users
             WHERE users.id = ?
         ", [$id]);

@@ -29,8 +29,7 @@
         </style>
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <!-- Quill stylesheet -->
-        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <link rel="stylesheet" href="public/sass/global.css">
     </head>
 
     <body>
@@ -46,7 +45,7 @@
                         <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
                     </li>
 
-                    <?php if(isset($_SESSION['auth'])) { ?>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?p=admin.posts.index">Admin<span class="sr-only">(current)</span></a>
                         </li>
@@ -61,13 +60,15 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
+                    <?php } elseif (isset($_SESSION['role']) && $_SESSION['role'] === '2') { ?>
+                        <a class="nav-link" href="index.php?p=users.account&id=<?= $_SESSION['auth']; ?>">Mon Compte</a>
+                        <span class="sr-only">(current)</span>
                     <?php } else { ?>
                         <a class="nav-link" href="index.php?p=users.login">Login</a>
                         <span class="sr-only">(current)</span>
                         <a class="nav-link" href="index.php?p=users.signIn">SignIn</a>
                         <span class="sr-only">(current)</span>
                     <?php } ?>
-
 
                 </ul>
                 <?php if(isset($_SESSION['auth'])) { ?>

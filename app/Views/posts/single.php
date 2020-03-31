@@ -3,19 +3,28 @@
 <h1><?= $post->title; ?></h1>
 <p><?= $post->content; ?></p>
 
-<div>
-    <form method="post">
-        <?= $form->input('content', 'Commentaire', ['type' => 'editor']); ?>
-        <button class="btn btn-primary">Sauvegarder</button>
-    </form>
-</div>
-
 <ul>
     <?php foreach($comments as $comment) : ?>
         <li>
+            <p><?= $comment->user; ?></p>
             <p><?= $comment->content; ?></p>
+            <form action="?p=posts.signal" method="post" style="display: inline;">
+                <input type="hidden" name="id" value="<?= $comment->id; ?>">
+                <button type="submit" class="btn btn-danger">Signaler</button>
+            </form>
         </li>
     <?php endforeach; ?>
 </ul>
+
+<?php if(isset($_SESSION['auth'])) { ?>
+
+<form method="post">
+    <?= $form->input('content', 'Commentaire', ['type' => 'textarea']); ?>
+    <?= $form->submit(); ?>
+</form>
+
+<?php }; ?>
+
+
 
 

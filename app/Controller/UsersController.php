@@ -19,7 +19,12 @@ class UsersController extends AppController {
         if (!empty($_POST)) {
             $auth = new DBAuth(App::getInstance()->getDb());
             if ($auth->login($_POST['username'], $_POST['password'])) {
-                header('Location: index.php?p=admin.posts.index');
+                if ($auth->logged()) {
+                    header('Location: index.php?p=admin.posts.index');
+                } else {
+                    header('Location: index.php');
+                }
+
             } else {
                 $errors = true;
             }
@@ -58,11 +63,17 @@ class UsersController extends AppController {
         $this->render('users.signIn', compact('form', 'errors'));
     }
 
+
     public function logout() {
         if (!empty($_SESSION)) {
-            unset($_SESSION['auth']);
+            unset($_SESSION);
             session_destroy();
             header('Location: index.php');
         }
+    }
+
+    public function account() {
+        $user = $this->User->find($_SESSION['auth']);
+        $this->render('users.account', compact('user'));
     }
 }

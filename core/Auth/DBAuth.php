@@ -43,8 +43,8 @@ class DBAuth {
     }
 
     public function logged() {
-        if($_SESSION['role'] === '1') {
-            return isset($_SESSION['role']);
+        if($_SESSION['auth']) {
+            return isset($_SESSION['auth']);
         }
 
     }

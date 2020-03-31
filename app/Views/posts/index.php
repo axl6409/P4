@@ -7,7 +7,6 @@
 
             <p><?= $post->excerpt; ?></p>
 
-
         <?php endforeach; ?>
 
     </div>
@@ -16,8 +15,8 @@
         <ul>
         <?php foreach($comments as $comment) : ?>
             <li>
+                <p><?= $comment->user; ?></p>
                 <p><?= $comment->post; ?></p>
-                <h2><?= $comment->user; ?></h2>
                 <p><?= $comment->content; ?></p>
             </li>
         <?php endforeach; ?>

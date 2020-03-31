@@ -1,5 +1,5 @@
 <?php
-define('ROOT', dirname(__DIR__));
+define('ROOT', dirname('jeanforteroche'));
 
 require ROOT . '/app/App.php';
 App::load();
