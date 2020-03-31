@@ -6,12 +6,15 @@
 <ul>
     <?php foreach($comments as $comment) : ?>
         <li>
-            <p><?= $comment->user; ?></p>
-            <p><?= $comment->content; ?></p>
-            <form action="?p=posts.signal" method="post" style="display: inline;">
-                <input type="hidden" name="id" value="<?= $comment->id; ?>">
-                <button type="submit" class="btn btn-danger">Signaler</button>
-            </form>
+            <div class="comment-infos">
+                <p><?= $comment->user; ?></p>
+                <p><?= $comment->content; ?></p>
+                <form action="?p=posts.signal" method="post" style="display: inline;">
+                    <input type="hidden" name="id" value="<?= $comment->id; ?>">
+                    <button type="submit" class="btn btn-danger">Signaler</button>
+                </form>
+            </div>
+
         </li>
     <?php endforeach; ?>
 </ul>

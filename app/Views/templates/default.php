@@ -1,9 +1,10 @@
 
 <?php include 'header.php'; ?>
 
-            <div class="starter-template">
+            <div class="container">
 
                 <?= $content; ?>
+
             </div>
 
 <?php include 'footer.php'; ?>

@@ -1,3 +1,17 @@
+ul {
+  list-style: none;
+}
 
+.post-container {
+  width: 47%;
+  display: inline-block;
+  margin: 1%;
+}
+
+.comment-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 /*# sourceMappingURL=global.css.map */
