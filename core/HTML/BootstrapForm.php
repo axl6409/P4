@@ -12,7 +12,6 @@ class BootstrapForm extends Form {
         return "<div class=\"form-group\">{$html}</div>";
     }
 
-
     /**
      * @param $name string
      * @param $label
@@ -24,6 +23,8 @@ class BootstrapForm extends Form {
         $label = '<label>' . $label . '</label>';
         if($type === 'textarea') {
             $input = '<textarea id="editor1" name="' . $name . '" class="form-control">'. $this->getValue($name) .'</textarea>';
+        } elseif($type === 'file') {
+            $input = '<input type="' . $type . '" name="' . $name . '" class="form-control">';
         } else {
             $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
         }
@@ -45,6 +46,8 @@ class BootstrapForm extends Form {
 
         return $this->surround($label . $input);
     }
+
+
 
     /**
      * @return string

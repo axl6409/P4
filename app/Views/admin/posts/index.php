@@ -2,7 +2,7 @@
 <h1>Administrer les Histoires</h1>
 
 <p>
-    <a href="?p=admin.posts.add" class="btn btn-success">Ajouter</a>
+    <a href="index.php?p=admin.posts.add" class="btn btn-success">Ajouter</a>
 </p>
 
 <table class="table">
@@ -24,9 +24,9 @@
                 <?= $post->title; ?>
             </td>
             <td>
-                <a class="btn btn-primary" href="?p=admin.posts.edit&id=<?= $post->id; ?>">Éditer</a>
+                <a class="btn btn-primary" href="index.php?p=admin.posts.edit&id=<?= $post->id; ?>">Éditer</a>
 
-                <form action="?p=admin.posts.delete" method="post" style="display: inline;">
+                <form action="index.php?p=admin.posts.delete" method="post" style="display: inline;">
                     <input type="hidden" name="id" value="<?= $post->id; ?>">
                     <button type="submit" class="btn btn-danger">Supprimer</button>
                 </form>
