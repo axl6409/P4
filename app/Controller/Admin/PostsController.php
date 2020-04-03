@@ -20,26 +20,38 @@ class PostsController extends AppController {
 
     public function add() {
 
+        $form = new BootstrapForm();
+
         if (!empty($_POST)) {
 
-            if (isset($_FILES["image"])) {
-                $file = new Upload();
-                if ($file->startUpload()) {
-                    echo "File uploaded";
+            if (!empty($_FILES['image'])) {
+
+                $upload = new Upload();
+                $start = $upload->startUpload();
+
+                if ($upload->uploadOk == false) {
+
+                    $this->render('admin.posts.edit', compact( 'form', 'start'));
+                    var_dump($start);
+                    die();
+
+                } else {
+
+                    $result = $this->Post->create([
+                        'title'     => $_POST['title'],
+                        'content'   => $_POST['content']
+                    ]);
+
+                    if ($result) {
+
+                        header('Location: index.php?p=admin.posts.add');
+                    }
+
                 }
+
             }
 
-            $result = $this->Post->create([
-                'title'     => $_POST['title'],
-                'content'   => $_POST['content']
-            ]);
-
-            if ($result) {
-                header('Location: index.php?p=admin.posts.index');
-            }
         }
-
-        $form = new BootstrapForm();
         $this->render('admin.posts.edit', compact( 'form'));
     }
 

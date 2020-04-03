@@ -1,4 +1,8 @@
 
+<?php if (isset($start)) {
+    echo $start;
+} ?>
+
 <form method="post" enctype="multipart/form-data">
     <?= $form->input('image', 'Image à la une', ['type' => 'file']); ?>
     <?= $form->input('title', 'Titre de l\'article'); ?>
