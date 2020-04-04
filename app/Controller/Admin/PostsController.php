@@ -20,58 +20,97 @@ class PostsController extends AppController {
 
     public function add() {
 
-        $form = new BootstrapForm();
+        $form = new BootstrapForm($_POST);
 
-        if (!empty($_POST)) {
+        if (!empty($_POST) && !empty($_FILES['image'])) {
 
-            if (!empty($_FILES['image'])) {
+            $upload = new Upload();
+            $start = $upload->startUpload();
 
-                $upload = new Upload();
-                $start = $upload->startUpload();
+            if ($upload->uploadOk == false) {
 
-                if ($upload->uploadOk == false) {
+                $this->render('admin.posts.edit', compact( 'form', 'start'));
+                return $start;
 
-                    $this->render('admin.posts.edit', compact( 'form', 'start'));
-                    var_dump($start);
-                    die();
+            } else {
 
-                } else {
+                $result = $this->Post->create([
+                    'title'     => $_POST['title'],
+                    'content'   => $_POST['content'],
+                    'image'     => $_FILES['image']['name']
+                ]);
 
-                    $result = $this->Post->create([
-                        'title'     => $_POST['title'],
-                        'content'   => $_POST['content']
-                    ]);
+                if ($result) {
 
-                    if ($result) {
-
-                        header('Location: index.php?p=admin.posts.add');
-                    }
-
+                    return $this->index();
                 }
 
             }
 
-        }
-        $this->render('admin.posts.edit', compact( 'form'));
-    }
+        } elseif (!empty($_POST)) {
 
-    public function edit() {
-
-        if (!empty($_POST)) {
-            $result = $this->Post->update($_GET['id'], [
+            $result = $this->Post->create([
                 'title'     => $_POST['title'],
-                'image'     => $_FILES['image']['name'],
                 'content'   => $_POST['content']
             ]);
 
             if ($result) {
-                header('Location: index.php?p=admin.posts.index');
+
+                return $this->index();
             }
+
         }
+
+        $this->render('admin.posts.edit', compact( 'form'));
+
+    }
+
+    public function edit() {
 
         $post = $this->Post->find($_GET['id']);
         $form = new BootstrapForm($post);
-        $this->render('admin.posts.edit', compact('post', 'form'));
+
+        if (!empty($_POST) && !empty($_FILES['image'])) {
+
+            $upload = new Upload();
+            $start = $upload->startUpload();
+
+            if ($upload->uploadOk == false) {
+
+                $this->render('admin.posts.edit', compact( 'form', 'start'));
+                return $start;
+
+            } else {
+
+                $result = $this->Post->update($_GET['id'], [
+                    'title'     => $_POST['title'],
+                    'content'   => $_POST['content'],
+                    'image'     => $_FILES['image']['name']
+                ]);
+
+                if ($result) {
+
+                    return $this->index();
+                }
+
+            }
+
+        } elseif (!empty($_POST)) {
+
+            $result = $this->Post->update($_GET['id'], [
+                'title'     => $_POST['title'],
+                'content'   => $_POST['content']
+            ]);
+
+            if ($result) {
+
+                return $this->index();
+            }
+
+        }
+
+        $this->render('admin.posts.edit', compact( 'post','form'));
+
     }
 
     public function delete() {

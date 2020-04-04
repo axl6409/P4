@@ -24,36 +24,26 @@ class Upload {
         if (!$this->checkType()) {
             $html = '<p>Only JPG, JPEG, PNG & GIF files are allowed !</p>';
             return $this->result($html);
-        }
-
-        if (!$this->checkSize()) {
+        } elseif (!$this->checkSize()) {
             $html = '<p>Your file is too large !</p>';
             return $this->result($html);
-        }
-
-        if (!$this->checkExists()) {
+        } elseif (!$this->checkExists()) {
             $html = '<p>File already exists !</p>';
             return $this->result($html);
-        }
-
-        if ($this->uploadOk == false) {
+        } elseif ($this->uploadOk == false) {
             $html = '<p>File was not upload</p>';
             return $this->result($html);
         } else {
-            if (move_uploaded_file($this->fileTmp, $this->target_file)) {
-                $html = '<p>File '. basename($this->fileName) .' has been uploaded !</p>';
-                return $this->result($html);
-            } else {
-                $html = '<p>File was not upload !</p>';
-                return $this->result($html);
-            }
+            move_uploaded_file($this->fileTmp, $this->target_file);
+            $html = '<p>File '. basename($this->fileName) .' has been uploaded !</p>';
+            return $this->result($html);
         }
-
     }
 
     protected function checkType() {
         $this->imageFileType = strtolower(pathinfo($this->target_file,PATHINFO_EXTENSION));
         if ($this->imageFileType != "jpg" && $this->imageFileType != "png" && $this->imageFileType != "jpeg" && $this->imageFileType != "gif") {
+            $this->uploadOk = false;
             return false;
         } else {
             $this->uploadOk = true;
@@ -64,6 +54,7 @@ class Upload {
 
     protected function checkSize() {
         if ($this->fileSize > $this->maxSize) {
+            $this->uploadOk = false;
             return false;
         } else {
             $this->uploadOk = true;
@@ -73,6 +64,7 @@ class Upload {
 
     protected function checkExists() {
         if (file_exists($this->target_file)) {
+            $this->uploadOk = false;
             return false;
         } else {
             $this->uploadOk = true;
