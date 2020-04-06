@@ -22,22 +22,36 @@ class PostsController extends AppController {
 
         $form = new BootstrapForm($_POST);
 
-        if (!empty($_POST) && !empty($_FILES['image'])) {
+        if (!empty($_POST)) {
 
-            $upload = new Upload();
-            $start = $upload->startUpload();
+            if (isset($_FILES)) {
 
-            if ($upload->uploadOk == false) {
+                $upload = new Upload();
+                $start = $upload->startUpload();
 
-                $this->render('admin.posts.edit', compact( 'form', 'start'));
-                return $start;
+                if ($upload->uploadOk == false) {
+
+                    $this->render('admin.posts.edit', compact('form', 'start'));
+                    return $start;
+
+                } else {
+
+                    $result = $this->Post->create([
+                        'image' => $_FILES['image']['name']
+                    ]);
+
+                    if ($result) {
+
+                        return $this->index();
+                    }
+
+                }
 
             } else {
 
                 $result = $this->Post->create([
-                    'title'     => $_POST['title'],
-                    'content'   => $_POST['content'],
-                    'image'     => $_FILES['image']['name']
+                    'title' => $_POST['title'],
+                    'content' => $_POST['content']
                 ]);
 
                 if ($result) {
@@ -46,19 +60,6 @@ class PostsController extends AppController {
                 }
 
             }
-
-        } elseif (!empty($_POST)) {
-
-            $result = $this->Post->create([
-                'title'     => $_POST['title'],
-                'content'   => $_POST['content']
-            ]);
-
-            if ($result) {
-
-                return $this->index();
-            }
-
         }
 
         $this->render('admin.posts.edit', compact( 'form'));
@@ -69,42 +70,42 @@ class PostsController extends AppController {
 
         $post = $this->Post->find($_GET['id']);
         $form = new BootstrapForm($post);
+        $upload = new Upload();
 
-        if (!empty($_POST) && !empty($_FILES['image'])) {
+        if (!empty($_POST)) {
 
-            $upload = new Upload();
-            $start = $upload->startUpload();
+            if ($_FILES['image']['error'] === 0) {
 
-            if ($upload->uploadOk == false) {
+                $start = $upload->startUpload();
 
-                $this->render('admin.posts.edit', compact( 'form', 'start'));
-                return $start;
+                if ($upload->uploadOk === false) {
 
-            } else {
+                    $this->render('admin.posts.edit', compact( 'post','form', 'start'));
+                    return $start;
+
+                } elseif ($upload->uploadOk === true) {
+
+                    $result = $this->Post->update($_GET['id'], [
+                        'image'     => $_FILES['image']['name']
+                    ]);
+
+                    if ($result) {
+                        return $this->index();
+                    }
+
+                }
+
+            } elseif ($_FILES['image']['error'] === 4) {
 
                 $result = $this->Post->update($_GET['id'], [
                     'title'     => $_POST['title'],
-                    'content'   => $_POST['content'],
-                    'image'     => $_FILES['image']['name']
+                    'content'   => $_POST['content']
                 ]);
 
                 if ($result) {
-
                     return $this->index();
                 }
 
-            }
-
-        } elseif (!empty($_POST)) {
-
-            $result = $this->Post->update($_GET['id'], [
-                'title'     => $_POST['title'],
-                'content'   => $_POST['content']
-            ]);
-
-            if ($result) {
-
-                return $this->index();
             }
 
         }

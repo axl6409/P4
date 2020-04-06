@@ -11,8 +11,9 @@ class Upload {
     private $fileTmp;
     private $fileSize;
     private $maxSize = 500000;
-    public $uploadOk = false;
+    public $uploadOk = true;
     private $imageFileType;
+    private $fileErrors;
 
     public function startUpload() {
 
@@ -20,24 +21,48 @@ class Upload {
         $this->target_file = $this->target_dir . basename($this->fileName);
         $this->fileSize = $_FILES["image"]["size"];
         $this->fileTmp = $_FILES["image"]["tmp_name"];
+        $this->fileErrors = $_FILES['image']['error'];
 
         if (!$this->checkType()) {
+
             $html = '<p>Only JPG, JPEG, PNG & GIF files are allowed !</p>';
             return $this->result($html);
-        } elseif (!$this->checkSize()) {
-            $html = '<p>Your file is too large !</p>';
+
+        }
+
+        if ($this->fileErrors === 1) {
+
+            $html = '<p>Your file is too large ! max of 500ko</p>';
+            return $html;
+
+        }
+
+        if (!$this->checkSize()) {
+
+            $html = '<p>Your file is too large ! Max 500Ko</p>';
             return $this->result($html);
-        } elseif (!$this->checkExists()) {
+
+        }
+
+        if (!$this->checkExists()) {
+
             $html = '<p>File already exists !</p>';
             return $this->result($html);
-        } elseif ($this->uploadOk == false) {
+
+        }
+
+        if ($this->uploadOk == false) {
+
             $html = '<p>File was not upload</p>';
             return $this->result($html);
+
         } else {
             move_uploaded_file($this->fileTmp, $this->target_file);
             $html = '<p>File '. basename($this->fileName) .' has been uploaded !</p>';
             return $this->result($html);
+
         }
+
     }
 
     protected function checkType() {
@@ -56,7 +81,7 @@ class Upload {
         if ($this->fileSize > $this->maxSize) {
             $this->uploadOk = false;
             return false;
-        } else {
+        } elseif ($this->fileSize <= $this->maxSize) {
             $this->uploadOk = true;
             return true;
         }
@@ -73,6 +98,6 @@ class Upload {
     }
 
     public function result($html) {
-        return "<div class=\"submit-message\">{$html}</div>";
+        return "<div class=\"submit-message alert alert-danger\">{$html}</div>";
     }
 }

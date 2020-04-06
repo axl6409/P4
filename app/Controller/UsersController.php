@@ -5,6 +5,7 @@ namespace App\Controller;
 use Core\Auth\DBAuth;
 use Core\HTML\BootstrapForm;
 use \App;
+use Core\HTML\Upload;
 
 class UsersController extends AppController {
 
@@ -72,8 +73,83 @@ class UsersController extends AppController {
         }
     }
 
-    public function account() {
+    public function index() {
         $user = $this->User->find($_SESSION['auth']);
-        $this->render('users.account', compact('user'));
+        $this->render('users.index', compact('user'));
+    }
+
+    public function update() {
+
+        $error = false;
+        $user = $this->User->find($_SESSION['auth']);
+        $form = new BootstrapForm($user);
+        $upload = new Upload();
+
+        if (!empty($_POST)) {
+
+            if ($_FILES['image']['error'] === 0) {
+
+                $start = $upload->startUpload();
+
+                if ($upload->uploadOk === false) {
+
+                    $this->render('users.update', compact('user', 'form', 'start', 'error'));
+                    return $start;
+
+                } elseif ($upload->uploadOk === true) {
+
+                    $result = $this->User->update($_GET['id'], [
+                        'image' => $_FILES['image']['name']
+                    ]);
+
+                    if ($result) {
+                        return $this->index();
+                    }
+
+                }
+
+            } elseif ($_FILES['image']['error'] === 4) {
+
+                if (!empty($_POST['password']) && empty($_POST['cfpassword'])) {
+
+                    $error = "Le champs de confirmation du mot de passe n'est pas remplis";
+                    return $error;
+
+                } elseif (!empty($_POST['password']) && !empty($_POST['cfpassword'])) {
+
+                    if ($_POST['password'] != $_POST['cfpassword']) {
+
+                        $error = "Les champs de mot de passe sont différents";
+                        return $error;
+
+                    }
+
+                    $password = sha1($_POST['password']);
+
+                    $result = $this->User->update($_GET['id'], [
+                       'password'   => $password
+                    ]);
+
+                    if ($result) {
+                        return $this->index();
+                    }
+
+                } elseif (empty($_POST['password']) && empty($_POST['cfpassword'])) {
+
+                    $result = $this->User->update($_GET['id'], [
+                        'username'   => $_POST['username'],
+                        'mail'       => $_POST['mail']
+                    ]);
+
+                    if ($result) {
+                        return $this->index();
+                    }
+
+                }
+
+            }
+
+        }
+        $this->render('users.update', compact('user', 'form', 'error'));
     }
 }

@@ -65,8 +65,8 @@ class Form {
     /**
      * @return string
      */
-    public function submit() {
-        return $this->surround('<button type="submit">Envoyer</button>');
+    public function submit($name) {
+        return $this->surround('<button type="submit">'. $name .'</button>');
     }
 
 

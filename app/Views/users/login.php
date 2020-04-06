@@ -9,7 +9,7 @@
 <form method="post">
     <?= $form->input('username', 'pseudo'); ?>
     <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
-    <?= $form->submit(); ?>
+    <?= $form->submit('Connexion'); ?>
 </form>
 
 

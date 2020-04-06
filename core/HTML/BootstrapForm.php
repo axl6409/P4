@@ -25,6 +25,8 @@ class BootstrapForm extends Form {
             $input = '<textarea id="editor1" name="' . $name . '" class="form-control">'. $this->getValue($name) .'</textarea>';
         } elseif($type === 'file') {
             $input = '<input type="' . $type . '" name="' . $name . '" class="form-control">';
+        } elseif($type === 'password') {
+            $input = '<input type="' . $type . '" name="' . $name . '" class="form-control">';
         } else {
             $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
         }
@@ -52,7 +54,7 @@ class BootstrapForm extends Form {
     /**
      * @return string
      */
-    public function submit() {
-        return $this->surround('<button type="submit" class="btn btn-primary">Envoyer</button>');
+    public function submit($name) {
+        return $this->surround('<button type="submit" class="btn btn-primary">'. $name .'</button>');
     }
 }

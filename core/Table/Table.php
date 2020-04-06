@@ -40,6 +40,16 @@ class Table {
         return $this->query("UPDATE {$this->table} SET $sql_part WHERE id = ?", $attributes, true);
     }
 
+    public function extract($key, $value){
+        $records = $this->all();
+        $return = [];
+        foreach ($records as $v) {
+            $return[$v->$key] = $v->$value;
+        }
+
+        return $return;
+    }
+
     public function delete($id) {
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id], true);
     }

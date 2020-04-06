@@ -4,13 +4,17 @@ ul {
 }
 
 body {
-  background-color: black;
+  background-color: white;
 }
 
 .submit-message {
   position: relative;
-  top: 50%;
+  width: 30%;
+  height: 100px;
   left: 35%;
-  background-color: rgba(0,0,0,0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 

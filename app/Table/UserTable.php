@@ -8,7 +8,6 @@ class UserTable extends Table {
 
     protected $table = 'users';
 
-
     public function infos($id) {
         return $this->query("
             SELECT *
