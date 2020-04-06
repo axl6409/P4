@@ -42,6 +42,7 @@ class BootstrapForm extends Form {
             if($k == $this->getValue($name)) {
                 $attributes = ' selected';
             }
+            $input .= "<option value='0'>$label</option>";
             $input .= "<option value='$k' $attributes>$v</option>";
         }
         $input .= '</select>';

@@ -52,6 +52,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?p=admin.comments.index">Commentaires</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?p=admin.images.index">Images</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= ucfirst($_SESSION['name']); ?></a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">

@@ -11,6 +11,7 @@ class PostsController extends AppController {
     public function __construct() {
         parent::__construct();
         $this->loadModel('Post');
+        $this->loadModel('Image');
     }
 
     public function index() {
@@ -21,48 +22,23 @@ class PostsController extends AppController {
     public function add() {
 
         $form = new BootstrapForm($_POST);
+        $images = $this->Image->extract('id','name');
 
         if (!empty($_POST)) {
 
-            if (isset($_FILES)) {
+            $result = $this->Post->create([
+                'title'         => $_POST['title'],
+                'content'       => $_POST['content'],
+                'image_id'      => $_POST['image']
+            ]);
 
-                $upload = new Upload();
-                $start = $upload->startUpload();
-
-                if ($upload->uploadOk == false) {
-
-                    $this->render('admin.posts.edit', compact('form', 'start'));
-                    return $start;
-
-                } else {
-
-                    $result = $this->Post->create([
-                        'image' => $_FILES['image']['name']
-                    ]);
-
-                    if ($result) {
-
-                        return $this->index();
-                    }
-
-                }
-
-            } else {
-
-                $result = $this->Post->create([
-                    'title' => $_POST['title'],
-                    'content' => $_POST['content']
-                ]);
-
-                if ($result) {
-
-                    return $this->index();
-                }
-
+            if ($result) {
+                return $this->index();
             }
+
         }
 
-        $this->render('admin.posts.edit', compact( 'form'));
+        $this->render('admin.posts.edit', compact( 'form', 'images'));
 
     }
 
@@ -70,47 +46,23 @@ class PostsController extends AppController {
 
         $post = $this->Post->find($_GET['id']);
         $form = new BootstrapForm($post);
-        $upload = new Upload();
+        $images = $this->Image->extract('id','image');
 
         if (!empty($_POST)) {
 
-            if ($_FILES['image']['error'] === 0) {
+            $result = $this->Post->update($_GET['id'], [
+                'title'         => $_POST['title'],
+                'content'       => $_POST['content'],
+                'image_id'      => $_POST['image']
+            ]);
 
-                $start = $upload->startUpload();
-
-                if ($upload->uploadOk === false) {
-
-                    $this->render('admin.posts.edit', compact( 'post','form', 'start'));
-                    return $start;
-
-                } elseif ($upload->uploadOk === true) {
-
-                    $result = $this->Post->update($_GET['id'], [
-                        'image'     => $_FILES['image']['name']
-                    ]);
-
-                    if ($result) {
-                        return $this->index();
-                    }
-
-                }
-
-            } elseif ($_FILES['image']['error'] === 4) {
-
-                $result = $this->Post->update($_GET['id'], [
-                    'title'     => $_POST['title'],
-                    'content'   => $_POST['content']
-                ]);
-
-                if ($result) {
-                    return $this->index();
-                }
-
+            if ($result) {
+                return $this->index();
             }
 
         }
 
-        $this->render('admin.posts.edit', compact( 'post','form'));
+        $this->render('admin.posts.edit', compact( 'post','form', 'images'));
 
     }
 

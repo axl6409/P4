@@ -12,7 +12,7 @@ class CommentTable extends Table {
 
     public function last() {
         return $this->query("
-            SELECT comments.id, comments.content, users.username as user, posts.title as post
+            SELECT comments.id, comments.content, users.username as user, users.image as image, posts.title as post
             FROM comments
             JOIN users ON user_id = users.id
             JOIN posts ON post_id = posts.id

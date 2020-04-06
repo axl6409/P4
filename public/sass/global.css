@@ -18,8 +18,8 @@ body {
 }
 
 .post-container {
-  width: 47%;
-  display: inline-block;
+  width: 98%;
+  display: block;
   margin: 1%;
 }
 
@@ -27,6 +27,24 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.com-user-image {
+  width: 20%;
+}
+
+.com-user-image img {
+  width: 100%;
+}
+
+.com-user {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.com-post {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 /*# sourceMappingURL=global.css.map */
