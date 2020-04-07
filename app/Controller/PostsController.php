@@ -13,6 +13,7 @@ class PostsController extends AppController {
         $this->loadModel('Post');
         $this->loadModel('Comment');
         $this->loadModel('User');
+        $this->loadModel('Image');
     }
 
     public function index() {
@@ -26,13 +27,15 @@ class PostsController extends AppController {
 
         $post = $this->Post->find($_GET['id']);
         $comments = $this->Comment->lastByStory($_GET['id']);
-        $form = new BootstrapForm();
+        $postImage = $this->Image->find($_GET['id']);
+        $form = new BootstrapForm($_POST);
+
         if (!empty($_POST['content'])) {
             $this->Comment->newComment($_POST['content'], $_SESSION['auth'], $_GET['id'], '2');
             unset($_POST);
             return $this->single();
         }
-        $this->render('posts.single', compact('post', 'comments', 'form'));
+        $this->render('posts.single', compact('post', 'comments', 'form', 'postImage'));
     }
 
     public function signal() {

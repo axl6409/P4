@@ -23,6 +23,10 @@ body {
   margin: 1%;
 }
 
+.single-image img {
+  width: 100%;
+}
+
 .comment {
   padding: 10px;
   position: relative;
@@ -68,6 +72,10 @@ body {
 }
 
 .admin-index-image img {
+  width: 100%;
+}
+
+.edit-image img {
   width: 100%;
 }
 

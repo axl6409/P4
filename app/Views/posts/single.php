@@ -1,4 +1,9 @@
 
+<?php if (!empty($postImage)) { ;?>
+<div class="col-md-12 single-image">
+    <img src="public/img/<?= $postImage->name ;?>" alt="">
+</div>
+<?php } ?>
 
 <h1><?= $post->title; ?></h1>
 <p><?= $post->content; ?></p>

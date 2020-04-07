@@ -97,6 +97,7 @@ class PostsController extends AppController {
         $images = $this->Image->extract('id','name');
         $form = new BootstrapForm($post);
         $upload = new Upload();
+        $postImage = $this->Image->find($post->image_id);
 
         if (!empty($_POST)) {
 
@@ -104,12 +105,12 @@ class PostsController extends AppController {
 
                 if ($_FILES['image']['error'] === 4) {
 
-                    if (!empty($_POST['image_slct'])) {
+                    if (!empty($_POST['image_id'])) {
 
                         $resultPost = $this->Post->update($_GET['id'], [
                             'title'         => $_POST['title'],
                             'content'       => $_POST['content'],
-                            'image_id'      => $_POST['image_slct']
+                            'image_id'      => $_POST['image_id']
                         ]);
 
                         if ($resultPost) {
@@ -135,7 +136,7 @@ class PostsController extends AppController {
 
                     if ($upload->uploadOk === false) {
 
-                        $this->render('admin.posts.edit', compact( 'post','form', 'images','start'));
+                        $this->render('admin.posts.edit', compact( 'post','form', 'postImage', 'images','start'));
                         return $start;
 
                     } elseif ($upload->uploadOk === true) {
@@ -162,7 +163,7 @@ class PostsController extends AppController {
 
         }
 
-        $this->render('admin.posts.edit', compact( 'post','form', 'images'));
+        $this->render('admin.posts.edit', compact( 'post','form', 'postImage', 'images'));
 
     }
 

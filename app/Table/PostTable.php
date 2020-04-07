@@ -23,5 +23,4 @@ class PostTable extends Table {
     }
 
 
-
 }

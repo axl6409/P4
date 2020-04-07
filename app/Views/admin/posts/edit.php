@@ -6,7 +6,11 @@
 <form method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
-
+            <?php if (!empty($postImage)) { ?>
+            <div class="col-md-12 edit-image">
+                <img src="public/img/<?= $postImage->name ;?>" alt="">
+            </div>
+            <?php } ?>
             <div class="col-md-5">
                 <?= $form->input('image', 'Ajouter une image', ['type' => 'file']); ?>
             </div>
