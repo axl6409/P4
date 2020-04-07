@@ -28,6 +28,10 @@ class Table {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
+    public function findByName($name) {
+        return $this->query("SELECT * FROM {$this->table} WHERE name = ?", [$name], true);
+    }
+
     public function update($id, $fields) {
         $sql_parts = [];
         $attributes = [];

@@ -1,27 +1,3 @@
-ul {
-  list-style: none;
-}
-
-body {
-  background-color: white;
-}
-
-.submit-message {
-  position: relative;
-  width: 30%;
-  height: 100px;
-  left: 35%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.post-container {
-  width: 98%;
-  display: block;
-  margin: 1%;
-}
 
 .comment {
   padding: 10px;
@@ -63,12 +39,4 @@ body {
   margin-left: 70px;
 }
 
-.admin-index-image {
-  margin-bottom: 1.9rem;
-}
 
-.admin-index-image img {
-  width: 100%;
-}
-
-/*# sourceMappingURL=global.css.map */

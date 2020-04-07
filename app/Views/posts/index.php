@@ -18,18 +18,17 @@
         <div class="col-sm-4">
             <ul>
             <?php foreach($comments as $comment) : ?>
-                <li class="jumbotron">
-                    <div class="comment-infos">
+                <li class="comment">
 
-                        <div class="com-user-image">
-                            <img src="public/img/<?= $comment->image ;?>" alt="">
-                        </div>
-                        <p class="com-user">User: <?= $comment->user; ?></p>
-                        <p class="com-post">Post: <?= $comment->post; ?></p>
-
+                    <img class="comment-avatar" src="public/img/<?= $comment->image ;?>" alt="">
+                    <div class="comment-head">
+                        <p class="comment-author"><?= $comment->user; ?></p>
+                        <p class="comment-story">Post: <?= $comment->post; ?></p>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text"><?= $comment->content; ?></p>
                     </div>
 
-                    <p><?= $comment->content; ?></p>
                 </li>
             <?php endforeach; ?>
             </ul>
