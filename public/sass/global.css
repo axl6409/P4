@@ -21,6 +21,10 @@ main {
   justify-content: space-evenly;
 }
 
+.fixed-top {
+  position: relative;
+}
+
 .hero {
   background-image: url("../../../public/assets/writer-machine.jpg");
   background-repeat: no-repeat;
@@ -36,6 +40,24 @@ main {
 
 .admin-container {
   padding-top: 100px;
+}
+
+.hero-container {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+  color: white;
+}
+
+.hero-text {
+  color: white;
 }
 
 .post-container {

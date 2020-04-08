@@ -61,7 +61,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= ucfirst($_SESSION['name']); ?></a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item" href="">Options</a>
+                                <a class="dropdown-item" href="index.php?p=admin.options.index">Options</a>
                             </div>
                         </li>
                     <?php } elseif (isset($_SESSION['role']) && $_SESSION['role'] === '2') { ?>

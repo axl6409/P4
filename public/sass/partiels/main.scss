@@ -22,6 +22,10 @@ main {
   justify-content: space-evenly;
 }
 
+.fixed-top {
+  position: relative;
+}
+
 .hero {
   background-image: url("../../../public/assets/writer-machine.jpg");
   background-repeat: no-repeat;

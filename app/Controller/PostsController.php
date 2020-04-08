@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Cassandra\Date;
 use Core\Controller\Controller;
 use Core\HTML\BootstrapForm;
 
@@ -20,7 +19,6 @@ class PostsController extends AppController {
         $posts = $this->Post->last();
         $comments = $this->Comment->last();
         $this->render('posts.index', compact('posts', 'comments'));
-
     }
 
     public function single() {

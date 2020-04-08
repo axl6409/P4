@@ -6,6 +6,7 @@ namespace Core\HTML;
 class Upload {
 
     private $target_dir = ROOT ."/public/img/";
+    private $altern_dir = ROOT ."/public/assets/";
     private $target_file;
     private $fileName;
     private $fileTmp;
@@ -15,13 +16,22 @@ class Upload {
     private $imageFileType;
     private $fileErrors;
 
-    public function startUpload() {
+    public function startUpload($target = []) {
 
-        $this->fileName = $_FILES["image"]["name"];
-        $this->target_file = $this->target_dir . basename($this->fileName);
-        $this->fileSize = $_FILES["image"]["size"];
-        $this->fileTmp = $_FILES["image"]["tmp_name"];
-        $this->fileErrors = $_FILES['image']['error'];
+
+        if ($target === 'options') {
+            $this->fileName = $_FILES["value"]["name"];
+            $this->target_file = $this->altern_dir . basename($this->fileName);
+            $this->fileSize = $_FILES["value"]["size"];
+            $this->fileTmp = $_FILES["value"]["tmp_name"];
+            $this->fileErrors = $_FILES['value']['error'];
+        } else {
+            $this->fileName = $_FILES["image"]["name"];
+            $this->target_file = $this->target_dir . basename($this->fileName);
+            $this->fileSize = $_FILES["image"]["size"];
+            $this->fileTmp = $_FILES["image"]["tmp_name"];
+            $this->fileErrors = $_FILES['image']['error'];
+        }
 
         if (!$this->checkType()) {
 

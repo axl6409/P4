@@ -14,7 +14,6 @@
             <div class="col-md-5">Actions</div>
 
 
-
             <?php foreach ($images as $image) : ?>
 
                 <div class="col-md-1">
