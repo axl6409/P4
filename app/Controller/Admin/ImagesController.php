@@ -60,34 +60,6 @@ class ImagesController extends AppController {
         $this->render('admin.images.add', compact( 'form', 'error'));
     }
 
-    public function edit() {
-
-        $image = $this->Image->find($_GET['id']);
-        $form = new BootstrapForm($image);
-        /*
-        $filename = $image->name;
-        $oldWithoutExt = pathinfo($filename, PATHINFO_FILENAME);
-
-        if (!empty($_POST)) {
-
-            $old = ROOT . "/public/img/" . $oldWithoutExt;
-            $new = pathinfo($_POST['name'], PATHINFO_FILENAME);
-
-            rename($old, $new);
-
-           $result = $this->Image->update($_GET['id'], [
-              'name'    => $_POST['name']
-           ]);
-
-           if ($result) {
-               return $this->index();
-           }
-
-        }
-        */
-
-        $this->render('admin.images.edit', compact( 'form'));
-    }
 
     public function delete() {
 

@@ -16,5 +16,13 @@ class UserTable extends Table {
         ", [$id]);
     }
 
+    public function regUsers() {
+        return $this->query("
+            SELECT *
+            FROM users
+            WHERE role_id = 2
+        ");
+    }
+
 
 }

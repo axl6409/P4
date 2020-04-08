@@ -27,7 +27,7 @@ class PostsController extends AppController {
 
         $post = $this->Post->find($_GET['id']);
         $comments = $this->Comment->lastByStory($_GET['id']);
-        $postImage = $this->Image->find($_GET['id']);
+        $postImage = $this->Image->find($post->image_id);
         $form = new BootstrapForm($_POST);
 
         if (!empty($_POST['content'])) {

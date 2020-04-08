@@ -55,12 +55,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?p=admin.images.index">Images</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?p=admin.users.index">Users</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= ucfirst($_SESSION['name']); ?></a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="">Options</a>
                             </div>
                         </li>
                     <?php } elseif (isset($_SESSION['role']) && $_SESSION['role'] === '2') { ?>
@@ -74,6 +75,7 @@
                     <?php } ?>
 
                 </ul>
+
                 <?php if(isset($_SESSION['auth'])) { ?>
                     <a class="btn btn-outline-danger" href="index.php?p=users.logout">Déconnexion</a>
                     <span class="sr-only">(current)</span>

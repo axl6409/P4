@@ -1,5 +1,9 @@
 
+<div class="hero">
 
+</div>
+
+<div class="container home-container">
     <div class="row">
         <div class="col-sm-8">
 
@@ -17,23 +21,26 @@
 
         <div class="col-sm-4">
             <ul>
-            <?php foreach($comments as $comment) : ?>
-                <li class="comment">
+                <h2>Derniers Commentaires</h2>
+                <?php foreach($comments as $comment) : ?>
+                    <li class="comment">
 
-                    <img class="comment-avatar" src="public/img/<?= $comment->image ;?>" alt="">
-                    <div class="comment-head">
-                        <p class="comment-author"><?= $comment->user; ?></p>
-                        <p class="comment-story">Post: <?= $comment->post; ?></p>
-                    </div>
-                    <div class="comment-body">
-                        <p class="comment-text"><?= $comment->content; ?></p>
-                    </div>
+                        <img class="comment-avatar" src="public/img/<?= $comment->image ;?>" alt="">
+                        <div class="comment-head">
+                            <p class="comment-author"><?= $comment->user; ?></p>
+                            <p class="comment-story">Post: <?= $comment->post; ?></p>
+                        </div>
+                        <div class="comment-body">
+                            <p class="comment-text"><?= $comment->content; ?></p>
+                        </div>
 
-                </li>
-            <?php endforeach; ?>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
+</div>
+
 
 
 
