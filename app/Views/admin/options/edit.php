@@ -11,32 +11,42 @@
                 <?= $start; ?>
             <?php } ?>
 
-            <?php if ($_GET['id'] == 1){ ;?>
+            <?php if ($option->type == 3){ ;?>
 
             <form method="post" enctype="multipart/form-data">
 
                 <?php if (isset($option->value)) { ?>
 
                     <div class="admin-index-image">
-                        <img src="public/assets/<?= $option->value ;?>" alt="">
+                        <img src="public/assets/<?= $postImage->name ;?>" alt="">
                     </div>
 
                 <?php } ?>
-
                 <?= $form->input('value', 'Changer d\'image', ['type' => 'file']); ?>
+                <?= $form->select('name', 'Selectionner une image', $images) ;?>
                 <?= $form->submit('Modifier'); ?>
 
             </form>
 
-            <?php } else { ?>
+            <?php } elseif($option->type == 2) { ?>
+            <div class="col-md-12">
+                <form method="post">
 
-            <form method="post">
+                    <?= $form->input('value', 'Nouvelle valeur', ['type' => 'textarea']) ;?>
+                    <?= $form->submit('Modifier'); ?>
 
-            <?= $form->input('value', 'Nouvelle valeur') ;?>
-            <?= $form->submit('Modifier'); ?>
+                </form>
+            </div>
 
-            </form>
+            <?php } elseif ($option->type == 1) { ?>
+                <div class="col-md-12">
+                    <form method="post">
 
+                        <?= $form->input('value', 'Nouvelle valeur') ;?>
+                        <?= $form->submit('Modifier'); ?>
+
+                    </form>
+                </div>
             <?php } ?>
         </div>
     </div>

@@ -24,9 +24,11 @@ class OptionsController extends AppController {
 
         $option = $this->Option->find($_GET['id']);
         $form = new BootstrapForm($option);
+        $images = $this->Image->extract('id','name');
+        $postImage = $this->Image->find($option->value);
         $upload = new Upload();
 
-        if ($_GET['id'] == 1) {
+        if ($option->type == 3) {
 
             if (isset($_POST)) {
 
@@ -34,9 +36,20 @@ class OptionsController extends AppController {
 
                     if ($_FILES['value']['error'] === 4) {
 
-                        $error = "<p>Aucune image n'as été ajoutée</p>";
-                        $this->render('admin.options.edit', compact('option', 'form', 'error'));
-                        return $error;
+                        if (!empty($_POST['name'])) {
+                            $resultPost = $this->Option->update($_GET['id'], [
+                               'value'      => $_POST['name']
+                            ]);
+
+                            if ($resultPost) {
+                                return $this->index();
+                            }
+                        } else {
+
+                            $error = "<p>Aucune image n'as été ajoutée</p>";
+                            $this->render('admin.options.edit', compact('option', 'form','images', 'postImage','error'));
+                            return $error;
+                        }
 
                     } elseif ($_FILES['value']['error'] === 0) {
 
@@ -44,16 +57,22 @@ class OptionsController extends AppController {
 
                         if ($upload->uploadOk === false) {
 
-                            $this->render('admin.options.edit', compact('option', 'form', 'start'));
+                            $this->render('admin.options.edit', compact('option', 'form', 'images','postImage','start'));
                             return $start;
 
                         } elseif ($upload->uploadOk === true) {
 
-                            $result = $this->Option->update($_GET['id'], [
-                                'value' => $_FILES['value']['name']
+                            $resultImage = $this->Image->create([
+                                'value'     => $_FILES['value']['name']
                             ]);
 
-                            if ($result) {
+                            $imageId = $this->Image->findByName($_FILES['image']['name']);
+
+                            $resultPost = $this->Option->update($_GET['id'], [
+                                'value'      => $imageId->id
+                            ]);
+
+                            if ($resultImage && $resultPost) {
                                 return $this->index();
                             }
                         }
@@ -63,17 +82,18 @@ class OptionsController extends AppController {
 
         } else {
 
-            $result = $this->Option->update($_GET['id'], [
-                'value'     => $_POST['value']
-            ]);
+            if (!empty($_POST)) {
+                $result = $this->Option->update($_GET['id'], [
+                    'value'     => $_POST['value']
+                ]);
 
-            if ($result) {
-                return $this->index();
+                if ($result) {
+                    return $this->index();
+                }
             }
-
         }
 
-        $this->render('admin.options.edit', compact( 'option','form'));
+        $this->render('admin.options.edit', compact( 'option','form','images','postImage'));
     }
 
 }

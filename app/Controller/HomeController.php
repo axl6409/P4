@@ -10,11 +10,13 @@ class HomeController extends AppController {
     public function __construct() {
         parent::__construct();
         $this->loadModel('Option');
+        $this->loadModel('Image');
     }
 
     public function home() {
         $options = $this->Option->all();
-        $this->render('home.index', compact('options'));
+        $postImage = $this->Image->find($options[0]->value);
+        $this->render('home.index', compact('options', 'postImage'));
     }
 
 }

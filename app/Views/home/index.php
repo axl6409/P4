@@ -1,5 +1,5 @@
 
-<div class="hero">
+<div class="hero" style="background-image: url('public/assets/<?= $postImage->name ;?>')">
 
     <div class="hero-container">
 

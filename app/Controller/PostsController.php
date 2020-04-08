@@ -18,7 +18,8 @@ class PostsController extends AppController {
     public function index() {
         $posts = $this->Post->last();
         $comments = $this->Comment->last();
-        $this->render('posts.index', compact('posts', 'comments'));
+        $postImage = $this->Image->find($options[0]->value);
+        $this->render('posts.index', compact('posts', 'comments', '$postImage'));
     }
 
     public function single() {
