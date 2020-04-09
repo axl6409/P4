@@ -30,8 +30,9 @@
                     <?= $form->submit('Envoyer'); ?>
                 </form>
             </div>
+            <?php } else { ?>
+                <p class="new-comment" id="commentForm" style="text-align: center">Vous devez avoir un compte pour pouvoir poster un commentaire.</p>
             <?php } ?>
-
             <div class="lasts-comments">
                 <ul>
                     <h2 class="lasts-comments-title">Derniers Commentaires</h2>

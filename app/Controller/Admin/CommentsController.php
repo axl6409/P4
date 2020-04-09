@@ -13,7 +13,8 @@ class CommentsController extends AppController {
 
     public function index() {
         $comments = $this->Comment->comAlert();
-        $this->render('admin.comments.index', compact('comments'));
+        $allComments = $this->Comment->all();
+        $this->render('admin.comments.index', compact('comments', 'allComments'));
     }
 
     public function delete() {
@@ -36,5 +37,6 @@ class CommentsController extends AppController {
             }
         }
     }
+
 
 }

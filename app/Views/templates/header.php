@@ -82,10 +82,7 @@
                         <a class="nav-link" href="index.php?p=posts.index">Chapitres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+                        <a class="nav-link disabled" href="#" aria-disabled="true">Contact</a>
                     </li>
                 </ul>
             </div>

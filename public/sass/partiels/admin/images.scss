@@ -6,3 +6,47 @@
 .admin-index-image img {
   width: 100%;
 }
+
+.admin-images-sub-title {
+  margin-bottom: 25px;
+}
+
+.images-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 31%;
+  display: inline-block;
+  height: 250px;
+  margin: 1%;
+  position: relative;
+}
+
+.images-container:hover .images-infos {
+  opacity: 1;
+}
+
+.images-infos {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.images-infos h3 {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+}
+
+.images-infos form {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}

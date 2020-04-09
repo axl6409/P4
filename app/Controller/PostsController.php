@@ -12,17 +12,18 @@ class PostsController extends AppController {
         $this->loadModel('Post');
         $this->loadModel('Comment');
         $this->loadModel('User');
-        $this->loadModel('Image');
+        $this->loadModel('PostsImage');
         $this->loadModel('Option');
+        $this->loadModel('OptionsImage');
     }
 
     public function index() {
         $posts = $this->Post->last();
         $comments = $this->Comment->last();
         $options = $this->Option->all();
-        $optionImage = $this->Image->find($options[3]->value);
+        $optionImage = $this->OptionsImage->find($options[10]->value);
         foreach ($posts as $post) {
-            $postImage = $this->Image->find($post->image_id);
+            $postImage = $this->PostsImage->find($post->image_id);
         }
 
         $this->render('posts.index', compact('posts', 'comments', 'postImage', 'options','optionImage'));
@@ -32,7 +33,7 @@ class PostsController extends AppController {
 
         $post = $this->Post->find($_GET['id']);
         $comments = $this->Comment->lastByStory($_GET['id']);
-        $postImage = $this->Image->find($post->image_id);
+        $postImage = $this->PostsImage->find($post->image_id);
         $form = new BootstrapForm($_POST);
 
         if (!empty($_POST['content'])) {

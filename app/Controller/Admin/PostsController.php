@@ -11,7 +11,7 @@ class PostsController extends AppController {
     public function __construct() {
         parent::__construct();
         $this->loadModel('Post');
-        $this->loadModel('Image');
+        $this->loadModel('PostsImage');
     }
 
     public function index() {
@@ -23,7 +23,7 @@ class PostsController extends AppController {
 
         $form = new BootstrapForm($_POST);
         $upload = new Upload();
-        $images = $this->Image->extract('id','name');
+        $images = $this->PostsImage->extract('id','name');
 
         if (!empty($_POST)) {
 
@@ -67,11 +67,11 @@ class PostsController extends AppController {
 
                     } elseif ($upload->uploadOk === true) {
 
-                        $resultImage = $this->Image->create([
+                        $resultImage = $this->PostsImage->create([
                             'name'     => $_FILES['image']['name']
                         ]);
 
-                        $imageId = $this->Image->findByName($_FILES['image']['name']);
+                        $imageId = $this->PostsImage->findByName($_FILES['image']['name']);
 
                         $resultPost = $this->Post->create([
                             'title'         => $_POST['title'],
@@ -94,10 +94,10 @@ class PostsController extends AppController {
     public function edit() {
 
         $post = $this->Post->find($_GET['id']);
-        $images = $this->Image->extract('id','name');
+        $images = $this->PostsImage->extract('id','name');
         $form = new BootstrapForm($post);
         $upload = new Upload();
-        $postImage = $this->Image->find($post->image_id);
+        $postImage = $this->PostsImage->find($post->image_id);
 
         if (!empty($_POST)) {
 
@@ -141,11 +141,11 @@ class PostsController extends AppController {
 
                     } elseif ($upload->uploadOk === true) {
 
-                        $resultImage = $this->Image->create([
+                        $resultImage = $this->PostsImage->create([
                             'name'     => $_FILES['image']['name']
                         ]);
 
-                        $imageId = $this->Image->findByName($_FILES['image']['name']);
+                        $imageId = $this->PostsImage->findByName($_FILES['image']['name']);
 
                         $resultPost = $this->Post->update($_GET['id'], [
                             'title'         => $_POST['title'],

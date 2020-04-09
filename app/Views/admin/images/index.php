@@ -1,35 +1,41 @@
 <div class="container admin-container">
     <div class="row">
-        <h1>Administrer les Images</h1>
+        <h1 class="admin-title">Administrer les Images</h1>
 
-        <p>
-            <a href="index.php?p=admin.images.add" class="btn btn-success">Ajouter</a>
-        </p>
+        <div class="col-md-12">
 
-        <div class="row">
+            <h2 class="admin-images-sub-title">Images des Chapitres</h2>
 
-
-            <div class="col-md-1">ID</div>
-            <div class="col-md-6">Titre</div>
-            <div class="col-md-5">Actions</div>
-
-
-            <?php foreach ($images as $image) : ?>
-
-                <div class="col-md-1">
-                    <?= $image->id; ?>
+            <?php foreach ($postsImages as $postImage) : ?>
+                <div class="images-container" style="background-image: url('public/img/<?= $postImage->name; ?>')">
+                    <div class="images-infos">
+                        <h3><?= $postImage->name;?></h3>
+                        <form action="index.php?p=admin.images.delete" method="post" style="display: inline;">
+                            <input type="hidden" name="id" value="<?= $postImage->id; ?>">
+                            <input type="hidden" name="name" value="<?= $postImage->name ;?>">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-6 admin-index-image">
-                    <img src="public/img/<?= $image->name; ?>" alt="">
-                </div>
-                <div class="col-md-5">
-                    <form action="index.php?p=admin.images.delete" method="post" style="display: inline;">
-                        <input type="hidden" name="id" value="<?= $image->id; ?>">
-                        <input type="hidden" name="name" value="<?= $image->name ;?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                    </form>
-                </div>
+            <?php endforeach; ?>
 
+        </div>
+
+        <div class="col-md-12">
+
+            <h2 class="admin-images-sub-title">Images du Site</h2>
+
+            <?php foreach ($optionsImages as $optionImage) : ?>
+                <div class="images-container" style="background-image: url('public/assets/<?= $optionImage->name; ?>')">
+                    <div class="images-infos">
+                        <h3><?= $optionImage->name;?></h3>
+                        <form action="index.php?p=admin.images.delete" method="post" style="display: inline;">
+                            <input type="hidden" name="id" value="<?= $optionImage->id; ?>">
+                            <input type="hidden" name="name" value="<?= $optionImage->name ;?>">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
             <?php endforeach; ?>
 
         </div>

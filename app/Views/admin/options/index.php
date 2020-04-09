@@ -1,32 +1,37 @@
 
 <div class="container admin-container">
     <div class="row">
-        <h1>Administrer les Options du Site</h1>
+        <h1 class="admin-title">Administrer les Options du Site</h1>
 
-        <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>Nom</td>
+                    <td>Valeur</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
 
-            <div class="col-md-1">ID</div>
-            <div class="col-md-3">Nom</div>
-            <div class="col-md-7">Valeur</div>
-            <div class="col-md-1">Actions</div>
-
-            <?php foreach ($options as $option) : ?>
-
-                <div class="col-md-1">
-                    <?= $option->id; ?>
-                </div>
-                <div class="col-md-3 admin-index-image">
-                    <?= $option->name; ?>
-                </div>
-                <div class="col-md-7 admin-index-image">
-                    <?= $option->value; ?>
-                </div>
-                <div class="col-md-1">
-                    <a class="btn btn-primary" href="index.php?p=admin.options.edit&id=<?= $option->id; ?>">Éditer</a>
-                </div>
-
-            <?php endforeach; ?>
-
+                <tbody>
+                <?php foreach ($options as $option) : ?>
+                    <tr>
+                        <td>
+                            <?= $option->name; ?>
+                        </td>
+                        <td>
+                            <?= $option->excerpt; ?>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="index.php?p=admin.options.edit&id=<?= $option->id; ?>">Éditer</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
+
+
+
     </div>
 </div>

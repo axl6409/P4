@@ -10,12 +10,14 @@ class ImagesController extends AppController {
 
     public function __construct() {
         parent::__construct();
-        $this->loadModel('Image');
+        $this->loadModel('PostsImage');
+        $this->loadModel('OptionsImage');
     }
 
     public function index() {
-        $images = $this->Image->all();
-        $this->render('admin.images.index', compact('images'));
+        $postsImages = $this->PostsImage->all();
+        $optionsImages = $this->OptionsImage->all();
+        $this->render('admin.images.index', compact('postsImages', 'optionsImages'));
     }
 
     public function add() {

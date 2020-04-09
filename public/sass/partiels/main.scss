@@ -26,8 +26,10 @@ main {
   justify-content: space-evenly;
 }
 
-.fixed-top {
-  position: relative;
+.admin-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .account-btn {
@@ -53,6 +55,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   width: 100%;
   height: 850px;
 }

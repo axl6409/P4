@@ -19,10 +19,10 @@
                 <div class="col-md-12 section-first">
                     <h2 class="section-title">A Propos</h2>
 
-                    <h3 class="section-sub-title"><?= $options[4]->value ;?></h3>
+                    <h3 class="section-sub-title"><?= $options[3]->value ;?></h3>
 
                     <div class="about-content">
-                        <?= $options[5]->value ;?>
+                        <?= $options[4]->value ;?>
                     </div>
 
                 </div>
@@ -30,7 +30,7 @@
                     <img src='public/assets/<?= $bioImage->name ;?>' alt="">
                 </div>
                 <div class="col-md-6 section-quote">
-                    <?= $options[7]->value ;?>
+                    <?= $options[6]->value ;?>
                 </div>
             </div>
 
@@ -39,10 +39,10 @@
                 <div class="col-md-7">
                     <h2 class="section-title">Découvrez mon nouveau roman en ligne</h2>
 
-                    <h3 class="section-sub-title"><?= $options[8]->value ;?></h3>
+                    <h3 class="section-sub-title"><?= $options[7]->value ;?></h3>
 
                     <div class="section-content">
-                        <?= $options[9]->value ;?>
+                        <?= $options[8]->value ;?>
                     </div>
 
                     <a href="index.php?p=posts.index">Lire les chapitres</a>

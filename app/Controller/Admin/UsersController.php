@@ -16,5 +16,13 @@ class UsersController extends AppController {
         $this->render('admin.users.index', compact('users'));
     }
 
+    public function delete() {
+        if (!empty($_POST)) {
+            $result = $this->User->delete($_POST['id']);
+            header('Location: index.php?p=admin.users.index');
+        }
+
+    }
+
 
 }

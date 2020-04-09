@@ -5,7 +5,7 @@ namespace App\Entity;
 
 use Core\Entity\Entity;
 
-class ImageEntity extends Entity {
+class PostsImageEntity extends Entity {
 
 
 

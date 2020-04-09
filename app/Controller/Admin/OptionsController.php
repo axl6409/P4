@@ -12,7 +12,7 @@ class OptionsController extends AppController {
     {
         parent::__construct();
         $this->loadModel('Option');
-        $this->loadModel('Image');
+        $this->loadModel('OptionsImage');
     }
 
     public function index() {
@@ -24,8 +24,8 @@ class OptionsController extends AppController {
 
         $option = $this->Option->find($_GET['id']);
         $form = new BootstrapForm($option);
-        $images = $this->Image->extract('id','name');
-        $postImage = $this->Image->find($option->value);
+        $images = $this->OptionsImage->extract('id','name');
+        $postImage = $this->OptionsImage->find($option->value);
         $upload = new Upload();
 
         if ($option->type == 3) {
@@ -62,11 +62,11 @@ class OptionsController extends AppController {
 
                         } elseif ($upload->uploadOk === true) {
 
-                            $resultImage = $this->Image->create([
+                            $resultImage = $this->OptionsImage->create([
                                 'name'     => $_FILES['value']['name']
                             ]);
 
-                            $imageId = $this->Image->findByName($_FILES['value']['name']);
+                            $imageId = $this->OptionsImage->findByName($_FILES['value']['name']);
 
                             $resultPost = $this->Option->update($_GET['id'], [
                                 'value'      => $imageId->id
