@@ -11,6 +11,10 @@ main {
   padding-top: 0;
 }
 
+.disp-none {
+  display: none;
+}
+
 .submit-message {
   position: relative;
   width: 30%;
@@ -26,6 +30,65 @@ main {
   position: relative;
 }
 
+.account-btn {
+  margin-left: 20px;
+}
+
+.log-link {
+  color: white;
+}
+
 .admin-container {
   padding-top: 100px;
 }
+
+.overlay {
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: auto;
+}
+
+.hero {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 850px;
+}
+
+.hero-overlay {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.hero-container {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  z-index: 99;
+}
+
+.hero-title {
+  color: white;
+}
+
+.hero-container p {
+  color: white;
+}
+
+.hero-container h1 {
+  color: white;
+}
+
+.home-container {
+  padding-top: 60px;
+}
+

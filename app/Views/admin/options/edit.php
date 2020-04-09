@@ -15,7 +15,7 @@
 
             <form method="post" enctype="multipart/form-data">
 
-                <?php if (isset($option->value)) { ?>
+                <?php if (!empty($option->value)) { ?>
 
                     <div class="admin-index-image">
                         <img src="public/assets/<?= $postImage->name ;?>" alt="">

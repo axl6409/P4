@@ -13,13 +13,19 @@ class PostsController extends AppController {
         $this->loadModel('Comment');
         $this->loadModel('User');
         $this->loadModel('Image');
+        $this->loadModel('Option');
     }
 
     public function index() {
         $posts = $this->Post->last();
         $comments = $this->Comment->last();
-        $postImage = $this->Image->find($options[0]->value);
-        $this->render('posts.index', compact('posts', 'comments', '$postImage'));
+        $options = $this->Option->all();
+        $optionImage = $this->Image->find($options[3]->value);
+        foreach ($posts as $post) {
+            $postImage = $this->Image->find($post->image_id);
+        }
+
+        $this->render('posts.index', compact('posts', 'comments', 'postImage', 'options','optionImage'));
     }
 
     public function single() {

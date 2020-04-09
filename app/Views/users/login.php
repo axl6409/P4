@@ -1,16 +1,23 @@
 
-<?php if ($errors) { ?>
-    <div class="badge-danger">
-        Identifiants Incorrects
-    </div>
-<?php } ?>
+<div class="admin-container container">
+    <div class="row">
+        <div class="col-md-12">
+            <?php if ($errors) { ?>
+                <div class="badge-danger">
+                    Identifiants Incorrects
+                </div>
+            <?php } ?>
 
-<h2>Connexion</h2>
-<form method="post">
-    <?= $form->input('username', 'pseudo'); ?>
-    <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
-    <?= $form->submit('Connexion'); ?>
-</form>
+            <h2>Connexion</h2>
+            <form method="post">
+                <?= $form->input('username', 'pseudo'); ?>
+                <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
+                <?= $form->submit('Connexion'); ?>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 

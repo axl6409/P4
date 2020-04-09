@@ -63,10 +63,10 @@ class OptionsController extends AppController {
                         } elseif ($upload->uploadOk === true) {
 
                             $resultImage = $this->Image->create([
-                                'value'     => $_FILES['value']['name']
+                                'name'     => $_FILES['value']['name']
                             ]);
 
-                            $imageId = $this->Image->findByName($_FILES['image']['name']);
+                            $imageId = $this->Image->findByName($_FILES['value']['name']);
 
                             $resultPost = $this->Option->update($_GET['id'], [
                                 'value'      => $imageId->id

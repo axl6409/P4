@@ -15,8 +15,10 @@ class HomeController extends AppController {
 
     public function home() {
         $options = $this->Option->all();
-        $postImage = $this->Image->find($options[0]->value);
-        $this->render('home.index', compact('options', 'postImage'));
+        $heroImage = $this->Image->find($options[0]->value);
+        $bioImage = $this->Image->find($options[6]->value);
+        $romanImage = $this->Image->find($options[10]->value);
+        $this->render('home.index', compact('options', 'heroImage', 'bioImage','romanImage'));
     }
 
 }

@@ -18,7 +18,7 @@ class PostTable extends Table {
         return $this->query("
             SELECT *
             FROM posts
-            ORDER BY date DESC 
+            ORDER BY date ASC 
         ");
     }
 
