@@ -41,13 +41,17 @@ main {
 }
 
 .admin-container {
-  padding-top: 100px;
+  padding-top: 10%;
 }
 
 .overlay {
   background-color: rgba(0,0,0,0.5);
   width: 100%;
   height: auto;
+}
+
+.public-bar {
+  top: 55px;
 }
 
 .hero {

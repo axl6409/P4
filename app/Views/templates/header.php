@@ -66,7 +66,7 @@
         </nav>
     <?php } ?>
 
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top public-bar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
