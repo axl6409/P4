@@ -10,7 +10,7 @@
                 <div class="images-container" style="background-image: url('public/img/<?= $postImage->name; ?>')">
                     <div class="images-infos">
                         <h3><?= $postImage->name;?></h3>
-                        <form action="index.php?p=admin.images.delete" method="post" style="display: inline;">
+                        <form action="index.php?p=admin.images.delPost" method="post" style="display: inline;">
                             <input type="hidden" name="id" value="<?= $postImage->id; ?>">
                             <input type="hidden" name="name" value="<?= $postImage->name ;?>">
                             <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -29,7 +29,7 @@
                 <div class="images-container" style="background-image: url('public/assets/<?= $optionImage->name; ?>')">
                     <div class="images-infos">
                         <h3><?= $optionImage->name;?></h3>
-                        <form action="index.php?p=admin.images.delete" method="post" style="display: inline;">
+                        <form action="index.php?p=admin.images.delOption" method="post" style="display: inline;">
                             <input type="hidden" name="id" value="<?= $optionImage->id; ?>">
                             <input type="hidden" name="name" value="<?= $optionImage->name ;?>">
                             <button type="submit" class="btn btn-danger">Supprimer</button>

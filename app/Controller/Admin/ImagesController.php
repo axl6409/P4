@@ -63,10 +63,20 @@ class ImagesController extends AppController {
     }
 
 
-    public function delete() {
+    public function delOption() {
 
         if (!empty($_POST)) {
-            $result = $this->Image->delete($_POST['id']);
+            $result = $this->OptionsImage->delete($_POST['id']);
+            $delete = unlink('public/assets/' . $_POST['name']);
+            header('Location: index.php?p=admin.images.index');
+        }
+
+    }
+
+    public function delPost() {
+
+        if (!empty($_POST)) {
+            $result = $this->PostsImage->delete($_POST['id']);
             $delete = unlink('public/img/' . $_POST['name']);
             header('Location: index.php?p=admin.images.index');
         }
