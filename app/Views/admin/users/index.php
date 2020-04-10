@@ -2,7 +2,7 @@
 
 <div class="container admin-container">
     <div class="row">
-        <h1>Gestion des utilisateurs</h1>
+        <h1 class="admin-title">Gestion des utilisateurs</h1>
 
         <table class="table">
             <thead>
@@ -30,6 +30,7 @@
 
             <?php endforeach; ?>
 
-
+            </tbody>
+        </table>
     </div>
 </div>

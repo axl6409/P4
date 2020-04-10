@@ -1,5 +1,64 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 .box-shadow {
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+}
+
+.disp-in-blck {
+  display: inline-block;
 }
 
 ul {
@@ -8,6 +67,13 @@ ul {
 
 body {
   background-color: white;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
+}
+
+a:hover {
+  color: green;
+  text-decoration: none;
 }
 
 main {
@@ -43,8 +109,52 @@ main {
   color: white;
 }
 
+.log-title {
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+.log-form {
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.log-form label {
+  padding-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.log-form button {
+  margin-left: 40%;
+  margin-top: 50px;
+}
+
 .admin-container {
-  padding-top: 10%;
+  margin-top: 250px;
+  margin-bottom: 350px;
+}
+
+.admin-title {
+  text-align: center;
+  margin-bottom: 50px;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.admin-sub-title {
+  text-align: left;
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.admin-sections {
+  margin-bottom: 100px;
 }
 
 .overlay {
@@ -54,7 +164,7 @@ main {
 }
 
 .public-bar {
-  top: 55px;
+  top: 54px;
 }
 
 .hero {
@@ -64,7 +174,8 @@ main {
   background-position: center;
   background-attachment: fixed;
   width: 100%;
-  height: 850px;
+  height: 1080px;
+  box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero-overlay {
@@ -92,14 +203,70 @@ main {
 
 .hero-container p {
   color: white;
+  font-size: 20px;
+  letter-spacing: 10px;
 }
 
 .hero-container h1 {
   color: white;
+  font-size: 50px;
+  letter-spacing: 5px;
+  line-height: 80px;
+  font-weight: 400;
+  margin-bottom: 50px;
 }
 
 .home-container {
   padding-top: 60px;
+}
+
+.footer {
+  background-color: black;
+  margin-top: 5%;
+  width: 100%;
+  height: auto;
+  color: white;
+  box-shadow: 0px -15px 30px 5px rgba(0, 0, 0, 0.5);
+}
+
+.footer-lists-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-lists-container h3 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+}
+
+.footer-nav {
+  width: 10%;
+}
+
+.footer-nav-item {
+  margin-bottom: 5px;
+}
+
+.footer-nav-item i {
+  width: 20px;
+}
+
+.footer-nav-item a {
+  color: white;
+}
+
+.footer-nav-item a:hover {
+  color: indianred;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .section {
@@ -108,6 +275,7 @@ main {
 
 .section-first {
   margin-bottom: 50px;
+  margin-top: 150px;
 }
 
 .section-title {
@@ -123,15 +291,27 @@ main {
   letter-spacing: 1px;
   padding-bottom: 5px;
   border-bottom: 1px solid darkgray;
-  width: 50%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.home-texts {
+  letter-spacing: 2px;
+  line-height: 25px;
+  margin-bottom: 25px;
 }
 
 .section-quote {
   padding-top: 25%;
+  letter-spacing: 2px;
+  line-height: 25px;
 }
 
 .section-image {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .section-image img {
@@ -145,12 +325,24 @@ main {
 }
 
 .post-introduction {
-  width: 50%;
-  margin-left: 25%;
-  margin-top: -10%;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 10%;
   background-color: white;
-  padding: 2% 5%;
+  padding: 2% 2%;
   text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.post-introduction p {
+  padding-top: 15px;
+}
+
+.post-excerpt {
+  letter-spacing: 2px;
+  line-height: 25px;
 }
 
 .single-hero {
@@ -167,9 +359,11 @@ main {
 
 .single-content {
   padding: 2% 5%;
-  margin-top: -150px;
+  margin-top: 150px;
+  line-height: 30px;
   background-color: white;
   margin-bottom: 100px;
+  box-shadow: 0px 15px 20px 10px rgba(0, 0, 0, 0.5);
 }
 
 .single-comment {
@@ -201,11 +395,15 @@ main {
   background-size: cover;
   background-position: center;
   width: 50%;
+  border: 20px solid black;
 }
 
 .post-title {
   text-align: center;
   padding: 20px;
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .post-title a {
@@ -221,6 +419,7 @@ main {
 
 .see-more {
   text-align: center;
+  margin-top: 30px;
 }
 
 .see-more a {
@@ -271,9 +470,68 @@ main {
   margin-left: 70px;
 }
 
-.admin-main-title {
+.user-account-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+
+.user-account-image {
+  width: 15%;
+}
+
+.user-account-image img {
+  width: 100%;
+}
+
+.user-account-infos {
+  width: 50%;
+}
+
+.user-update-title {
+  width: 100%;
   text-align: center;
-  margin-bottom: 50px;
+}
+
+.user-form-section {
+  width: 43%;
+  margin: 3%;
+  display: inline-block;
+}
+
+.user-update-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.user-update-img-container {
+  width: 30%;
+}
+
+.user-update-img-container img {
+  width: 100%;
+}
+
+.user-update-img-field {
+  width: 30%;
+}
+
+.user-update-submit {
+  width: 100%;
+  text-align: center;
+}
+
+.contact-container {
+  margin-top: 150px;
+}
+
+.contact-head {
+  padding: 3% 5%;
+  margin: 5%;
+  background: beige;
+  margin-bottom: 10%;
 }
 
 .new-post-btn {

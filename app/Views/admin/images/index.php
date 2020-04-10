@@ -2,9 +2,9 @@
     <div class="row">
         <h1 class="admin-title">Administrer les Images</h1>
 
-        <div class="col-md-12">
+        <div class="col-md-12 admin-sections">
 
-            <h2 class="admin-images-sub-title">Images des Chapitres</h2>
+            <h2 class="admin-sub-title">Images des Chapitres</h2>
 
             <?php foreach ($postsImages as $postImage) : ?>
                 <div class="images-container" style="background-image: url('public/img/<?= $postImage->name; ?>')">
@@ -21,9 +21,9 @@
 
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12 admin-sections">
 
-            <h2 class="admin-images-sub-title">Images du Site</h2>
+            <h2 class="admin-sub-title">Images du Site</h2>
 
             <?php foreach ($optionsImages as $optionImage) : ?>
                 <div class="images-container" style="background-image: url('public/assets/<?= $optionImage->name; ?>')">

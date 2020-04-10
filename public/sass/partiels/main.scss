@@ -5,6 +5,14 @@ ul {
 
 body {
   background-color: white;
+  font-family: $main-font;
+  letter-spacing: 1px;
+}
+
+
+a:hover {
+  color: green;
+  text-decoration: none;
 }
 
 main {
@@ -40,8 +48,52 @@ main {
   color: white;
 }
 
+.log-title {
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+.log-form {
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.log-form label {
+  padding-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.log-form button {
+  margin-left: 40%;
+  margin-top: 50px;
+}
+
 .admin-container {
-  padding-top: 10%;
+  margin-top: 250px;
+  margin-bottom: 350px;
+}
+
+.admin-title {
+  text-align: center;
+  margin-bottom: 50px;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.admin-sub-title {
+  text-align: left;
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.admin-sections {
+  margin-bottom: 100px;
 }
 
 .overlay {
@@ -51,7 +103,7 @@ main {
 }
 
 .public-bar {
-  top: 55px;
+  top: 54px;
 }
 
 .hero {
@@ -61,7 +113,8 @@ main {
   background-position: center;
   background-attachment: fixed;
   width: 100%;
-  height: 850px;
+  height: 1080px;
+  box-shadow: 0px 30px 20px rgba(0,0,0,0.5);
 }
 
 .hero-overlay {
@@ -89,13 +142,65 @@ main {
 
 .hero-container p {
   color: white;
+  font-size: 20px;
+  letter-spacing: 10px;
 }
 
 .hero-container h1 {
   color: white;
+  font-size: 50px;
+  letter-spacing: 5px;
+  line-height: 80px;
+  font-weight: 400;
+  margin-bottom: 50px;
 }
 
 .home-container {
   padding-top: 60px;
 }
 
+.footer {
+  background-color: black;
+  margin-top: 5%;
+  width: 100%;
+  height: auto;
+  color: white;
+  box-shadow: 0px -15px 30px 5px rgba(0,0,0,0.5);
+}
+
+.footer-lists-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-lists-container h3 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+}
+
+.footer-nav {
+  width: 10%;
+}
+
+.footer-nav-item {
+  margin-bottom: 5px;
+}
+.footer-nav-item i {
+  width: 20px;
+}
+.footer-nav-item a {
+  color: white;
+}
+.footer-nav-item a:hover {
+  color: indianred;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

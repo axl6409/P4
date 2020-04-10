@@ -6,10 +6,14 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container contact-container">
     <div class="row">
 
-        <p>Vous avez une question, une proposition de partenariat, ou autre ? Vous pouvez me contacter en remplissant le formualire si dessous !</p>
+        <div class="col-md-12">
+            <div class="contact-head">
+                <p>Vous avez une question, une proposition de partenariat, ou autre ? Vous pouvez me contacter en remplissant le formualire si dessous !</p>
+            </div>
+        </div>
 
         <div class="col-md-6">
             <form method="post">

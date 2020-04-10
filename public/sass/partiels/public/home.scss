@@ -5,6 +5,7 @@
 
 .section-first {
   margin-bottom: 50px;
+  margin-top: 150px;
 }
 
 .section-title {
@@ -20,17 +21,31 @@
   letter-spacing: 1px;
   padding-bottom: 5px;
   border-bottom: 1px solid darkgray;
-  width: 50%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.home-texts {
+  @include text-layout(2px, 25px);
+  margin-bottom: 25px;
 }
 
 .section-quote {
   padding-top: 25%;
+  @include text-layout(2px, 25px);
 }
 
 .section-image {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .section-image img {
   width: 80%;
+}
+
+.section-link {
+
 }

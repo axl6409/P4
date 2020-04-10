@@ -1,37 +1,52 @@
-<h1>My Account</h1>
 
-<?php if ($error) { ?>
-    <?= $error; ?>
-<?php } elseif (isset($start)) { ?>
-    <?= $start; ?>
-<?php } ?>
+<div class="container admin-container">
+    <div class="row">
 
-<div class="row">
+        <h1 class="user-update-title">Modifier vos informations</h1>
 
-    <div class="col-md-6">
-        <form method="post" enctype="multipart/form-data">
+        <?php if ($error) { ?>
+            <?= $error; ?>
+        <?php } elseif (isset($start)) { ?>
+            <?= $start; ?>
+        <?php } ?>
 
-            <?= $form->input('username', 'pseudo'); ?>
 
-            <p>Changer le mot de passe :</p>
-            <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
-            <?= $form->input('cfpassword', 'vérifier le mot de passe', ['type' => 'password']); ?>
+        <div class="col-md-12">
+            <form method="post" enctype="multipart/form-data">
 
-            <?= $form->input('mail', 'mail'); ?>
-
-            <?php if (isset($user->image)) { ?>
-                <div>
-                    <img src="public/img/<?= $user->image ;?>" alt="">
+                <div class="user-form-section">
+                    <p>Changer les informations :</p>
+                    <?= $form->input('username', 'pseudo'); ?>
+                    <?= $form->input('mail', 'mail'); ?>
                 </div>
-            <?php } ?>
-            <?= $form->input('image', 'Image de profil', ['type' => 'file']); ?>
+                <div class="user-form-section">
+                    <p>Changer le mot de passe :</p>
+                    <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
+                    <?= $form->input('cfpassword', 'vérifier le mot de passe', ['type' => 'password']); ?>
+                </div>
 
-            <?= $form->submit('Sauvegarder'); ?>
+                <div class="user-update-img">
+                    <?php if (isset($user->image)) { ?>
+                        <div class="user-update-img-container">
+                            <img src="public/img/<?= $user->image ;?>" alt="">
+                        </div>
+                    <?php } ?>
+                    <div class="user-update-img-field">
+                        <?= $form->input('image', 'Image de profil', ['type' => 'file']); ?>
+                    </div>
+                </div>
 
-        </form>
+                <div class="user-update-submit">
+                    <?= $form->submit('Sauvegarder'); ?>
+                </div>
+
+            </form>
+        </div>
+
+
     </div>
-
 </div>
+
 
 
 

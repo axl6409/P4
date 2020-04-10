@@ -1,9 +1,13 @@
+@import "partiels/resetcss.scss";
 @import "partiels/var.scss";
+@import "partiels/mixins.scss";
 @import "partiels/lib.scss";
 @import "partiels/main.scss";
 @import "partiels/public/home.scss";
 @import "partiels/public/posts.scss";
 @import "partiels/public/comments.scss";
+@import "partiels/public/users.scss";
+@import "partiels/public/contact.scss";
 @import "partiels/admin/posts.scss";
 @import "partiels/admin/images.scss";
 @import "partiels/admin/edit.scss";

@@ -6,12 +6,23 @@
 }
 
 .post-introduction {
-  width: 50%;
-  margin-left: 25%;
-  margin-top: -10%;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 10%;
   background-color: white;
-  padding: 2% 5%;
+  padding: 2% 2%;
   text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.post-introduction p {
+  padding-top: 15px;
+}
+
+.post-excerpt {
+  @include text-layout(2px, 25px);
 }
 
 .single-hero {
@@ -28,9 +39,11 @@
 
 .single-content {
   padding: 2% 5%;
-  margin-top: -150px;
+  margin-top: 150px;
+  line-height: 30px;
   background-color: white;
   margin-bottom: 100px;
+  box-shadow: 0px 15px 20px 10px rgba(0,0,0,0.5);
 }
 
 .single-comment {
@@ -62,11 +75,15 @@
   background-size: cover;
   background-position: center;
   width: 50%;
+  border: 20px solid black;
 }
 
 .post-title {
   text-align: center;
   padding: 20px;
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 .post-title a {
   color: black;
@@ -82,6 +99,7 @@
 
 .see-more {
   text-align: center;
+  margin-top: 30px;
 }
 
 .see-more a {

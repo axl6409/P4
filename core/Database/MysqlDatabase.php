@@ -13,7 +13,7 @@ class MysqlDatabase extends Database{
     private $db_host;
     private $pdo;
 
-    public function __construct($db_name, $db_user = 'root', $db_pass='', $db_host='localhost') {
+    public function __construct($db_name, $db_user, $db_pass, $db_host) {
 
         $this->db_name = $db_name;
         $this->db_user = $db_user;
@@ -24,7 +24,7 @@ class MysqlDatabase extends Database{
 
     private function getPDO() {
         if($this->pdo === null) {
-            $pdo = new PDO('mysql:dbname=jeanforteroche;host=localhost', 'root', '');
+            $pdo = new PDO('mysql:dbname='.$this->db_name.';host='.$this->db_host.'', $this->db_user, $this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
