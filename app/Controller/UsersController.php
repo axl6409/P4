@@ -7,13 +7,28 @@ use Core\HTML\BootstrapForm;
 use \App;
 use Core\HTML\Upload;
 
+/**
+ * Class UsersController
+ * @package App\Controller
+ */
 class UsersController extends AppController {
 
+    /**
+     * UsersController constructor.
+     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('User');
     }
 
+    /**
+     * Login function for users
+     * Use DBAuth login function
+     * Crypt POST password with SHA1
+     * Then check user logged
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\Auth\DBAuth
+     */
     public function login() {
 
         $errors = false;
@@ -37,6 +52,14 @@ class UsersController extends AppController {
 
     }
 
+    /**
+     * Sign in new Users
+     * Use DBAuth SignIn function
+     * Crypt POST password with SHA1
+     * Then use login function
+     * @uses \Core\Auth\DBAuth
+     * @uses \Core\HTML\BootstrapForm
+     */
     public function signIn() {
 
         $errors = false;
@@ -65,7 +88,10 @@ class UsersController extends AppController {
         $this->render('users.signIn', compact('form', 'errors'));
     }
 
-
+    /**
+     * Logout a user by unset & destroy the SESSION
+     * Then return location to Homepage
+     */
     public function logout() {
         if (!empty($_SESSION)) {
             unset($_SESSION);
@@ -74,11 +100,22 @@ class UsersController extends AppController {
         }
     }
 
+    /**
+     * Display Users page where can be find his informations
+     * @uses \App\Table\UserTable
+     */
     public function index() {
         $user = $this->User->find($_SESSION['auth']);
         $this->render('users.index', compact('user'));
     }
 
+    /**
+     * Let a user update his informations | Let the user to be able to change an profil picture
+     * @uses \App\Table\UserTable
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\HTML\Upload
+     * @return bool|string|void
+     */
     public function update() {
 
         $error = false;

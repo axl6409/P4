@@ -9,7 +9,7 @@
   width: 60%;
   margin-left: 20%;
   margin-top: 10%;
-  background-color: white;
+  background-color: $white0;
   padding: 2% 2%;
   text-align: center;
   line-height: 30px;
@@ -41,7 +41,7 @@
   padding: 2% 5%;
   margin-top: 150px;
   line-height: 30px;
-  background-color: white;
+  background-color: $white0;
   margin-bottom: 100px;
   box-shadow: 0px 15px 20px 10px rgba(0,0,0,0.5);
 }
@@ -75,7 +75,7 @@
   background-size: cover;
   background-position: center;
   width: 50%;
-  border: 20px solid black;
+  border: 20px solid $black;
 }
 
 .post-title {
@@ -86,7 +86,7 @@
   font-weight: 600;
 }
 .post-title a {
-  color: black;
+  color: $black;
 }
 
 .post-date {
@@ -95,7 +95,7 @@
 }
 
 .post-content {
-  color: black;
+  color: $black;
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 50px;
@@ -108,5 +108,5 @@
 }
 
 .see-more a {
-  color: black;
+  color: $black;
 }

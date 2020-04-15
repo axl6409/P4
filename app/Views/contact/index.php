@@ -18,7 +18,7 @@
 
         <div class="col-md-12">
             <div class="contact-head">
-                <p>Vous avez une question, une proposition de partenariat, ou autre ? Vous pouvez me contacter en remplissant le formualire si dessous !</p>
+                <p>Vous avez une question, une proposition de partenariat, ou autre ? Vous pouvez me contacter en remplissant le formulaire si dessous !</p>
             </div>
         </div>
 

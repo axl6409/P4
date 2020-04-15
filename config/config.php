@@ -1,7 +1,8 @@
 <?php
 
-return array (
+// Config of Database to connect
 
+return array (
     "db_user" => "root",
     "db_pass" => "",
     "db_host" => "localhost",

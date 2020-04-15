@@ -40,18 +40,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer-infos">
-                    <ul>
-                        <li class="footer-nav-item">
-                            <i class="fas fa-balance-scale"></i>
-                            <a href="#">Mentions Légales</a>
-                        </li>
-                        <li class="footer-nav-item">
-                            <i class="fas fa-book"></i>
-                            <a href="#">RGPD</a>
-                        </li>
-                    </ul>
-                </div>
 
             </div>
             <div class="footer-copyright">

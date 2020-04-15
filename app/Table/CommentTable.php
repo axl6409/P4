@@ -6,10 +6,18 @@ namespace App\Table;
 
 use Core\Table\Table;
 
+/**
+ * Class CommentTable
+ * @package App\Table
+ */
 class CommentTable extends Table {
 
     protected $table = 'comments';
 
+    /**
+     * Get last comments | Join on : Users & Posts Table
+     * @return mixed
+     */
     public function last() {
         return $this->query("
             SELECT comments.id, comments.content, users.username as user, users.image as image, posts.title as post
@@ -20,6 +28,10 @@ class CommentTable extends Table {
         ");
     }
 
+    /**
+     * Get Comment alert to update alert status | Join on : Users & Posts
+     * @return mixed
+     */
     public function comAlert() {
         return $this->query("
             SELECT comments.id, comments.content, users.username as user, posts.title as post
@@ -32,7 +44,7 @@ class CommentTable extends Table {
     }
 
     /**
-     * Récupere les derniers commentaires
+     * Get lasts comments on a story by story ID
      * @return array
      */
     public function lastByStory($id)
@@ -47,6 +59,15 @@ class CommentTable extends Table {
         ", [$id]);
     }
 
+    /**
+     * Create a new comment in Database
+     * @param $content
+     * @param $userId
+     * @param $postId
+     * @param $alertId
+     * @param $date
+     * @return mixed
+     */
     public function newComment($content, $userId, $postId, $alertId, $date) {
         return $this->create([
             'content'   => $content,

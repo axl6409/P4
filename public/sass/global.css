@@ -66,13 +66,13 @@ ul {
 }
 
 body {
-  background-color: white;
+  background-color: #fff;
   font-family: "Open Sans", sans-serif;
   letter-spacing: 1px;
 }
 
 a:hover {
-  color: green;
+  color: #CD5C5C;
   text-decoration: none;
 }
 
@@ -91,8 +91,8 @@ main {
   height: 100px;
   left: 35%;
   top: 50%;
-  background-color: darkred;
-  color: white;
+  background-color: #8B0000;
+  color: #fff;
   padding: 5%;
   border-radius: 10px;
   box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.5);
@@ -113,7 +113,7 @@ main {
 }
 
 .log-link {
-  color: white;
+  color: #fff;
 }
 
 .log-title {
@@ -205,17 +205,17 @@ main {
 }
 
 .hero-title {
-  color: white;
+  color: #fff;
 }
 
 .hero-container p {
-  color: white;
+  color: #fff;
   font-size: 20px;
   letter-spacing: 10px;
 }
 
 .hero-container h1 {
-  color: white;
+  color: #fff;
   font-size: 50px;
   letter-spacing: 5px;
   line-height: 80px;
@@ -232,7 +232,7 @@ main {
   margin-top: 5%;
   width: 100%;
   height: auto;
-  color: white;
+  color: #fff;
   box-shadow: 0px -15px 30px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -246,7 +246,7 @@ main {
 
 .footer-lists-container h3 {
   margin-bottom: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #fff;
   padding-bottom: 5px;
 }
 
@@ -263,11 +263,11 @@ main {
 }
 
 .footer-nav-item a {
-  color: white;
+  color: #fff;
 }
 
 .footer-nav-item a:hover {
-  color: indianred;
+  color: #CD5C5C;
 }
 
 .footer-copyright {
@@ -288,7 +288,7 @@ main {
 .section-title {
   font-size: 35px;
   font-weight: 300;
-  color: indianred;
+  color: #CD5C5C;
   margin-bottom: 25px;
 }
 
@@ -297,7 +297,7 @@ main {
   font-weight: 400;
   letter-spacing: 1px;
   padding-bottom: 5px;
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid #A9A9A9;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -335,7 +335,7 @@ main {
   width: 60%;
   margin-left: 20%;
   margin-top: 10%;
-  background-color: white;
+  background-color: #fff;
   padding: 2% 2%;
   text-align: center;
   line-height: 30px;
@@ -368,7 +368,7 @@ main {
   padding: 2% 5%;
   margin-top: 150px;
   line-height: 30px;
-  background-color: white;
+  background-color: #fff;
   margin-bottom: 100px;
   box-shadow: 0px 15px 20px 10px rgba(0, 0, 0, 0.5);
 }
@@ -402,7 +402,7 @@ main {
   background-size: cover;
   background-position: center;
   width: 50%;
-  border: 20px solid black;
+  border: 20px solid #000;
 }
 
 .post-title {
@@ -414,7 +414,7 @@ main {
 }
 
 .post-title a {
-  color: black;
+  color: #000;
 }
 
 .post-date {
@@ -423,7 +423,7 @@ main {
 }
 
 .post-content {
-  color: black;
+  color: #000;
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 50px;
@@ -435,7 +435,7 @@ main {
 }
 
 .see-more a {
-  color: black;
+  color: #000;
 }
 
 .comment {
@@ -546,7 +546,7 @@ main {
 .contact-head {
   padding: 3% 5%;
   margin: 5%;
-  background: beige;
+  background: #F5F5DC;
   margin-bottom: 10%;
 }
 
@@ -608,7 +608,7 @@ main {
 
 .images-infos {
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
   text-align: center;
   opacity: 0;
   position: absolute;

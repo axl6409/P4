@@ -5,9 +5,16 @@ namespace App\Controller;
 use Core\Controller\Controller;
 use Core\HTML\BootstrapForm;
 
+/**
+ * Class ContactController
+ * @package App\Controller
+ */
 class ContactController extends AppController {
 
 
+    /**
+     * ContactController constructor.
+     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('User');
@@ -15,6 +22,13 @@ class ContactController extends AppController {
         $this->loadModel('OptionsImage');
     }
 
+    /**
+     * Main page for Contact
+     * Generate a form with BootstrapForm | Display options values | Display Image set in options | Manage ReCaptcha V3
+     * @uses \App\Table\OptionTable
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \App\Table\OptionsImageTable
+     */
     public function index() {
         $form = new BootstrapForm($_POST);
         $options = $this->Option->all();
@@ -63,7 +77,14 @@ class ContactController extends AppController {
 
     }
 
+    /**
+     * Send the email before check if all fields are set and valid
+     * Return errors in $_SESSION
+     * @uses \App\Controller\UsersController
+     */
     public function send() {
+
+        $users = $this->User->find(1);
 
         $errors = [];
 
@@ -87,7 +108,7 @@ class ContactController extends AppController {
             $_SESSION['errors'] = $errors;
             header('Location: index.php?p=contact.index');
         } else {
-            $to      = 'alexandre.celier64@gmail.com';
+            $to      = $users->mail;
             $subject = 'Contact depuis le site JeanForteroche';
             $message = $_POST['message'];
             $headers = 'From: '.$_POST['mail'].'' . "\r\n" .

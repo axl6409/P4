@@ -7,7 +7,6 @@
         <?= $options[2]->value ;?>
 
     </div>
-
 </div>
 
 <div class="container home-container">
