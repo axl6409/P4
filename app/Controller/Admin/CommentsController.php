@@ -13,7 +13,7 @@ class CommentsController extends AppController {
 
     public function index() {
         $comments = $this->Comment->comAlert();
-        $allComments = $this->Comment->all();
+        $allComments = $this->Comment->last();
         $this->render('admin.comments.index', compact('comments', 'allComments'));
     }
 

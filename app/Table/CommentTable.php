@@ -17,7 +17,6 @@ class CommentTable extends Table {
             JOIN users ON user_id = users.id
             JOIN posts ON post_id = posts.id
             ORDER BY comments.date DESC
-            LIMIT 10
         ");
     }
 
@@ -48,12 +47,13 @@ class CommentTable extends Table {
         ", [$id]);
     }
 
-    public function newComment($content, $userId, $postId, $alertId) {
+    public function newComment($content, $userId, $postId, $alertId, $date) {
         return $this->create([
             'content'   => $content,
             'user_id'   => $userId,
             'post_id'   => $postId,
-            'alert_id'  => $alertId
+            'alert_id'  => $alertId,
+            'date'      => $date
         ]);
     }
 

@@ -18,17 +18,20 @@ class BootstrapForm extends Form {
      * @param array $options
      * @return string
      */
-    public function input($name, $label, $options = []) {
+    public function input($name, $label, $options = [], $require = false) {
         $type = isset($options['type']) ? $options['type'] : 'text';
+        $req = $require ? 'required' : '';
         $label = '<label>' . $label . '</label>';
         if($type === 'textarea') {
-            $input = '<textarea id="editor1" name="' . $name . '" class="form-control">'. $this->getValue($name) .'</textarea>';
+            $input = '<textarea id="editor1" name="' . $name . '" class="form-control" '.$req.'>'. $this->getValue($name) .'</textarea>';
         } elseif($type === 'file') {
             $input = '<input type="' . $type . '" name="' . $name . '" class="form-control">';
+        } elseif($type === 'message') {
+            $input = '<textarea id="'. $name .'" type="' . $type . '" name="' . $name . '" class="form-control"></textarea>';
         } elseif($type === 'password') {
-            $input = '<input type="' . $type . '" name="' . $name . '" class="form-control">';
+            $input = '<input type="' . $type . '" name="' . $name . '" class="form-control" '.$req.'>';
         } else {
-            $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
+            $input = '<input id="'. $name .'" type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control" '.$req.'>';
         }
 
         return $this->surround($label . $input);

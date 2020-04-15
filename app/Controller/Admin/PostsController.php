@@ -2,7 +2,8 @@
 
 
 namespace App\Controller\Admin;
-
+use \DateTime;
+use \DateTimeZone;
 use Core\HTML\BootstrapForm;
 use Core\HTML\Upload;
 
@@ -21,6 +22,7 @@ class PostsController extends AppController {
 
     public function add() {
 
+        $date = new DateTime(null, new DateTimeZone('Europe/Paris'));
         $form = new BootstrapForm($_POST);
         $upload = new Upload();
         $images = $this->PostsImage->extract('id','name');
@@ -36,6 +38,7 @@ class PostsController extends AppController {
                         $resultPost = $this->Post->create([
                             'title'         => $_POST['title'],
                             'content'       => $_POST['content'],
+                            'date'          => $date->format('Y-m-d'),
                             'image_id'      => $_POST['image_slct']
                         ]);
 
@@ -47,7 +50,8 @@ class PostsController extends AppController {
 
                         $resultPost = $this->Post->create([
                             'title'         => $_POST['title'],
-                            'content'       => $_POST['content']
+                            'content'       => $_POST['content'],
+                            'date'          => $date->format('Y-m-d')
                         ]);
 
                         if ($resultPost) {
@@ -76,6 +80,7 @@ class PostsController extends AppController {
                         $resultPost = $this->Post->create([
                             'title'         => $_POST['title'],
                             'content'       => $_POST['content'],
+                            'date'          => $date->format('Y-m-d H:i:s'),
                             'image_id'      => $imageId->id
                         ]);
 

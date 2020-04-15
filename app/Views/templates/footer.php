@@ -55,7 +55,7 @@
 
             </div>
             <div class="footer-copyright">
-                <p>2020 - Site Développed By <a href="#">Alexandre Celier</a> | <a href="#">VectorWeb</a></p>
+                <p>2020 - Site Développed By <a href="https://alexandre-celier.fr">Alexandre Celier</a> | <a href="https://vectorweb.fr">VectorWeb</a></p>
                 <p></p>
             </div>
         </footer>
@@ -64,6 +64,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/478ea9f976.js" crossorigin="anonymous"></script>
+
+        <script>
+            grecaptcha.ready(function() {
+                // do request for recaptcha token
+                // response is promise with passed token
+                grecaptcha.execute('6Lf1pegUAAAAAIgBXbP59G9g6Ljak4ZvVe5bD10d', {action:'validate_captcha'})
+                    .then(function(token) {
+                        // add token value to form
+                        document.getElementById('g-recaptcha-response').value = token;
+                    });
+            });
+        </script>
         <!-- Include the ckeditor -->
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
             <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>

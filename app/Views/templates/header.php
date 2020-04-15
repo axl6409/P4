@@ -30,6 +30,7 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link href="public/sass/global.css" rel="stylesheet">
+        <script src="https://www.google.com/recaptcha/api.js?render=6Lf1pegUAAAAAIgBXbP59G9g6Ljak4ZvVe5bD10d"></script>
     </head>
 
     <body>

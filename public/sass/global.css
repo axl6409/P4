@@ -85,10 +85,17 @@ main {
 }
 
 .submit-message {
-  position: relative;
+  position: fixed;
+  z-index: 999;
   width: 30%;
   height: 100px;
   left: 35%;
+  top: 50%;
+  background-color: darkred;
+  color: white;
+  padding: 5%;
+  border-radius: 10px;
+  box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -410,6 +417,11 @@ main {
   color: black;
 }
 
+.post-date {
+  text-align: center;
+  padding: 20px;
+}
+
 .post-content {
   color: black;
   padding-left: 50px;
@@ -468,6 +480,10 @@ main {
 
 .comment-body {
   margin-left: 70px;
+}
+
+.single-comments-signal {
+  float: right;
 }
 
 .user-account-container {
@@ -532,6 +548,10 @@ main {
   margin: 5%;
   background: beige;
   margin-bottom: 10%;
+}
+
+.contact-map iframe {
+  width: 100%;
 }
 
 .new-post-btn {

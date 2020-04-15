@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="post-title"><a href="<?= $post->url; ?>"><?= $post->title; ?></a></h2>
-
+                    <p class="post-date"><?= $post->date ;?></p>
                     <div class="post-excerpt">
                         <?= $post->excerpt; ?>
                     </div>

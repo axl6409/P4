@@ -7,6 +7,7 @@
                 <a href="index.php?p=admin.posts.add" class="btn btn-outline-success">Nouveau Chapitre</a>
             </p>
 
+
             <table class="table posts-list">
                 <thead>
                 <tr>

@@ -59,7 +59,7 @@
                     <?php foreach ($allComments as $oneComment) : ?>
                         <tr>
                             <td>
-                                <?= $oneComment->id; ?>
+                                <?= $oneComment->user; ?>
                             </td>
                             <td>
                                 <?= $oneComment->content; ?>

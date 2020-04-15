@@ -26,6 +26,8 @@
             <?php if(isset($_SESSION['auth'])) { ?>
             <div class="new-comment" id="commentForm">
                 <form method="post">
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                    <input type="hidden" name="action" value="validate_captcha">
                     <?= $form->input('content', 'Votre commentaire', ['type' => 'textarea']); ?>
                     <?= $form->submit('Envoyer'); ?>
                 </form>
@@ -38,12 +40,12 @@
                     <h2 class="lasts-comments-title">Derniers Commentaires</h2>
                     <?php foreach($comments as $comment) : ?>
                         <li>
-                            <div class="jumbotron">
+                            <div class="jumbotron single-comments">
                                 <p><?= $comment->user; ?></p>
                                 <hr class="my-4">
                                 <p><?= $comment->content; ?></p>
                                 <?php if(isset($_SESSION['auth'])) { ?>
-                                    <form action="?p=posts.signal" method="post" style="display: inline;">
+                                    <form action="?p=posts.signal" class="single-comments-signal" method="post" style="display: inline;">
                                         <input type="hidden" name="id" value="<?= $comment->id; ?>">
                                         <button type="submit" class="btn btn-danger">Signaler</button>
                                     </form>

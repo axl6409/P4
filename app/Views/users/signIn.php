@@ -9,12 +9,12 @@
                 </div>
             <?php } ?>
 
-            <h2>Inscription</h2>
+            <h2 class="admin-title">Inscription</h2>
             <form method="post">
-                <?= $form->input('username', 'pseudo'); ?>
-                <?= $form->input('password', 'mot de passe', ['type' => 'password']); ?>
-                <?= $form->input('cfpassword', 'confirmer le mot de passe', ['type' => 'password']); ?>
-                <?= $form->input('mail', 'mail'); ?>
+                <?= $form->input('username', 'pseudo','', true); ?>
+                <?= $form->input('password', 'mot de passe', ['type' => 'password'], true); ?>
+                <?= $form->input('cfpassword', 'confirmer le mot de passe', ['type' => 'password'], true); ?>
+                <?= $form->input('mail', 'mail','', true); ?>
                 <button class="btn btn-primary">Envoyer</button>
             </form>
 
