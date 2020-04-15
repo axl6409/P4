@@ -6,3 +6,6 @@
 
 # Recaptcha Secret Key
 .ContactController.php
+
+# DB Config File
+/config
