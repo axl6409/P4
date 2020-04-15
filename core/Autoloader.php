@@ -1,8 +1,7 @@
 <?php
-namespace App;
+namespace Core;
 /**
  * Class Autoloader
- * @package App
  */
 class Autoloader{
 

@@ -1,0 +1,112 @@
+
+.post-container {
+  width: 98%;
+  display: block;
+  margin: 1%;
+}
+
+.post-introduction {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 10%;
+  background-color: $white0;
+  padding: 2% 2%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.post-introduction p {
+  padding-top: 15px;
+}
+
+.post-excerpt {
+  @include text-layout(2px, 25px);
+}
+
+.single-hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 850px;
+}
+
+.single-container {
+  padding-top: 50px;
+}
+
+.single-content {
+  padding: 2% 5%;
+  margin-top: 150px;
+  line-height: 30px;
+  background-color: $white0;
+  margin-bottom: 100px;
+  box-shadow: 0px 15px 20px 10px rgba(0,0,0,0.5);
+}
+
+.single-comment {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.single-image img {
+  width: 100%;
+}
+
+.lasts-comments {
+  margin-top: 100px;
+}
+
+.lasts-comments-title {
+  margin-bottom: 50px;
+}
+
+.post-section {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: row;
+}
+
+.post-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  border: 20px solid $black;
+}
+
+.post-title {
+  text-align: center;
+  padding: 20px;
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.post-title a {
+  color: $black;
+}
+
+.post-date {
+  text-align: center;
+  padding: 20px;
+}
+
+.post-content {
+  color: $black;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+
+.see-more {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.see-more a {
+  color: $black;
+}

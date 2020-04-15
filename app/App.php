@@ -1,20 +1,64 @@
 <?php
 
-namespace App;
+use Core\Config;
+use Core\Database\MysqlDatabase;
+
+/**
+ * Static class
+ * Class App
+ */
 
 class App {
 
-    const DB_NAME = 'jeanforteroche';
-    const DB_USER = 'root';
-    const DB_PASS = '';
-    const DB_HOST = 'localhost';
+    public $title = "Jean Forteroche";
+    private $db_instance;
+    private static $_instance;
 
-    private static $database;
+    /**
+     * Getter for Instance
+     * @return App
+     */
+    public static function getInstance() {
 
-    public static function getDb() {
-        if( self::$database === null) {
-            self::$database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
+        if (is_null(self::$_instance)) {
+            self::$_instance = new App();
         }
-        return self::$database;
+
+        return self::$_instance;
     }
+
+    /**
+     * Init Autoloader
+     */
+    public static function load() {
+        session_start();
+        require ROOT . '/app/Autoloader.php';
+        App\Autoloader::register();
+        require ROOT . '/core/Autoloader.php';
+        Core\Autoloader::register();
+
+    }
+
+    /**
+     * Getter for Tables
+     * @param $name
+     * @return mixed
+     */
+    public function getTable($name) {
+        $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
+        return new $class_name($this->getDb());
+    }
+
+    /**
+     * Getter for Database
+     * @return MysqlDatabase
+     */
+    public function getDb() {
+        $config = Config::getInstance(ROOT . '/config/config.php');
+        if (is_null($this->db_instance)) {
+            $this->db_instance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
+        }
+        return $this->db_instance;
+    }
+
 }
