@@ -31,7 +31,7 @@
 
 
 
-        <div class="col-md-6">
+        <div class="col-md-6 contact-form">
             <form method="post" id="contactForm" action="index.php?p=contact.send">
                 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                 <input type="hidden" name="action" value="validate_captcha">

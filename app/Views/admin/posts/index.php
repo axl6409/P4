@@ -11,22 +11,22 @@
             <table class="table posts-list">
                 <thead>
                 <tr>
-                    <td>Titre</td>
-                    <td>Extrait</td>
-                    <td>Actions</td>
+                    <td class="th-post-title">Titre</td>
+                    <td class="th-post-excerpt">Extrait</td>
+                    <td class="th-post-action">Actions</td>
                 </tr>
                 </thead>
 
                 <tbody>
                 <?php foreach ($posts as $post) : ?>
                     <tr class="table-row">
-                        <td class="col-1">
+                        <td class="col-1 t-post-title">
                             <?= $post->title; ?>
                         </td>
-                        <td class="col-2">
+                        <td class="col-2 t-post-excerpt">
                             <?= $post->excerptadmin; ?>
                         </td>
-                        <td class="col-3">
+                        <td class="col-3 t-post-action">
                             <a class="btn btn-primary" href="index.php?p=admin.posts.edit&id=<?= $post->id; ?>">Éditer</a>
 
                             <form action="index.php?p=admin.posts.delete" method="post" style="display: inline;">

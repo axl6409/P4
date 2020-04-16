@@ -7,22 +7,18 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <td>Nom</td>
-                    <td>Valeur</td>
-                    <td>Action</td>
+                    <td class="th-options-name">Nom</td>
+                    <td class="th-options-action">Action</td>
                 </tr>
                 </thead>
 
                 <tbody>
                 <?php foreach ($options as $option) : ?>
                     <tr>
-                        <td>
+                        <td class="t-options-name">
                             <?= $option->name; ?>
                         </td>
-                        <td>
-                            <?= $option->excerpt; ?>
-                        </td>
-                        <td>
+                        <td class="t-options-action">
                             <a class="btn btn-primary" href="index.php?p=admin.options.edit&id=<?= $option->id; ?>">Éditer</a>
                         </td>
                     </tr>

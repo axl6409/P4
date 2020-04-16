@@ -4,7 +4,7 @@
 
         <div class="col-md-6">
 
-            <h2 class="log-title">Connexion</h2>
+            <h2 class="admin-title">Connexion</h2>
 
             <?php if ($errors) { ?>
                 <div class="badge-danger">
@@ -28,7 +28,7 @@
                 </div>
                 <?php unset($_SESSION['errors']);endif; ?>
 
-            <form method="post" action="index.php?p=users.signIn">
+            <form method="post" class="log-form" action="index.php?p=users.signIn">
                 <?= $form->input('username', 'pseudo','', true); ?>
                 <?= $form->input('password', 'mot de passe', ['type' => 'password'], true); ?>
                 <?= $form->input('cfpassword', 'confirmer le mot de passe', ['type' => 'password'], true); ?>

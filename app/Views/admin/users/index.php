@@ -7,8 +7,8 @@
         <table class="table">
             <thead>
             <tr>
-                <td>Pseudo</td>
-                <td>Actions</td>
+                <td class="th-user">Pseudo</td>
+                <td class="th-user">Actions</td>
             </tr>
             </thead>
 
@@ -16,10 +16,10 @@
 
             <?php foreach ($users as $user) : ?>
                 <tr>
-                    <td><?= $user->username; ?></td>
+                    <td class="t-user"><?= $user->username; ?></td>
 
                     <td>
-                        <div class="col-md-6">
+                        <div class="col-md-6 user-delete">
                             <form action="index.php?p=admin.users.delete" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $user->id; ?>">
                                 <button type="submit" class="btn btn-danger">Supprimer</button>

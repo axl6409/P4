@@ -19,8 +19,32 @@ main {
   padding-top: 0;
 }
 
-.disp-none {
-  display: none;
+/**
+ * Header
+ */
+
+.admin-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 1000;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.public-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 999;
+}
+
+.admin-bar-active {
+  top: 58px;
 }
 
 .submit-message {
@@ -78,8 +102,8 @@ main {
 }
 
 .admin-container {
-  margin-top: 250px;
-  margin-bottom: 350px;
+  margin-top: 21%;
+  margin-bottom: 30%;
 }
 
 .admin-title {
@@ -107,10 +131,6 @@ main {
   background-color: rgba(0,0,0,0.5);
   width: 100%;
   height: auto;
-}
-
-.public-bar {
-  top: 54px;
 }
 
 .hero {
@@ -168,7 +188,8 @@ main {
 
 .footer {
   background-color: black;
-  margin-top: 5%;
+  position: relative;
+  bottom: 0;
   width: 100%;
   height: auto;
   color: $white0;

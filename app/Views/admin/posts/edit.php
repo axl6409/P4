@@ -13,20 +13,20 @@
                             <img src="public/img/<?= $postImage->name ;?>" alt="">
                         </div>
                     <?php } ?>
-                    <div class="col-md-5">
+                    <div class="col-md-5 edit-fields">
                         <?= $form->input('image', 'Ajouter une image', ['type' => 'file']); ?>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 edit-fields">
                         <p>OU</p>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 edit-fields">
                         <?= $form->select('image_id', 'Selectionner une image', $images) ;?>
                     </div>
                 </div>
             </div>
             <?= $form->input('title', 'Titre de l\'article'); ?>
             <?= $form->input('content', 'Contenu de l\'article', ['type' => 'textarea']); ?>
-            <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            <button type="submit" class="btn btn-primary edit-submit">Sauvegarder</button>
         </form>
     </div>
 

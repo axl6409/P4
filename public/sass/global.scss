@@ -12,3 +12,10 @@
 @import "partiels/admin/images.scss";
 @import "partiels/admin/edit.scss";
 
+@media screen and (max-width: $S) {
+  @import "partiels/responsive/small.scss";
+}
+@media screen and (max-width: $M) {
+  @import "partiels/responsive/medium.scss";
+}
+
