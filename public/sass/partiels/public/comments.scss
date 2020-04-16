@@ -11,18 +11,22 @@
 .new-comment {
   display: none;
 }
-
-.comment-avatar {
-  width: 54px;
-  padding: 3px;
-  background-color: $white0;
-  border-radius: 50px;
-  position: absolute;
-  display: block;
-  left: 10px;
-  top: 10px;
+.comment-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
-
+.comment-avatar {
+  width: 10%;
+  float: left;
+}
+.comment-avatar img {
+  width: 100%;
+}
+.comment-user-infos {
+  padding-top: 30px;
+  padding-left: 30px;
+}
 .comment-head {
   margin-left: 70px;
 }

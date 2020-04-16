@@ -50,7 +50,7 @@ class CommentTable extends Table {
     public function lastByStory($id)
     {
         return $this->query("
-            SELECT comments.id, comments.content, posts.id as post, users.username as user
+            SELECT comments.id, comments.content, comments.user_id, comments.date, posts.id as post, users.username as user
             FROM comments
             JOIN posts ON post_id = posts.id
             JOIN users ON user_id = users.id

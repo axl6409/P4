@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-
+        <meta name="author" content="Alexandre Celier">
+        <meta name="og:title" content="Jean Forteroche - Écrivain français passionné">
+        <meta name="og:url" content="https://www.projets.alexandre-celier.fr/P4">
+        <meta name="og:description" content="Jean Forteroche est un écrivain français, passionné par l'écriture et la puissance des mots, il publie son nouveau roman gratuitement en ligne">
+        <meta name="og:image" content="https://projets.alexandre-celier.fr/P4/public/assets/writer-machine.jpg">
         <title><?= App::getInstance()->title; ?></title>
 
         <style>
@@ -61,6 +65,8 @@
 
                         </ul>
 
+                        <a class="btn btn-outline-success account-btn" href="index.php?p=users.index&id=<?= $_SESSION['auth']; ?>">Mon Compte</a>
+                        <span class="sr-only">(current)</span>
                         <a class="btn btn-outline-danger logout-btn" href="index.php?p=users.logout">Déconnexion</a>
                         <span class="sr-only">(current)</span>
                     </div>

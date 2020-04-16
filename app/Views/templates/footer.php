@@ -18,9 +18,6 @@
                         <li class="footer-nav-item">
                             <a class="" href="index.php?p=users.login">Login</a>
                         </li>
-                        <li class="footer-nav-item">
-                            <a class="" href="index.php?p=users.signIn">SignIn</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="footer-socials">

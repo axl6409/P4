@@ -41,7 +41,19 @@
                     <?php foreach($comments as $comment) : ?>
                         <li>
                             <div class="jumbotron single-comments">
-                                <p><?= $comment->user; ?></p>
+                                <div class="comment-user">
+                                    <?php $userImage = $this->User->find($comment->user_id) ?>
+                                    <?php if (isset($userImage->image)) { ?>
+                                    <div class="comment-avatar">
+                                        <img src="public/img/<?= $userImage->image ;?>" alt="image de profil de l'utilisateur">
+                                    </div>
+                                    <?php } ?>
+                                    <div class="comment-user-infos">
+                                        <p><?= $comment->user; ?></p>
+                                        <div class="comment-date"><?= $comment->date;?></div>
+                                    </div>
+                                </div>
+
                                 <hr class="my-4">
                                 <p><?= $comment->content; ?></p>
                                 <?php if(isset($_SESSION['auth'])) { ?>
