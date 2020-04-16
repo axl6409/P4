@@ -12,6 +12,7 @@ class App {
 
     public $title = "Jean Forteroche";
     private $db_instance;
+    private $cp_instance;
     private static $_instance;
 
     /**
@@ -60,5 +61,6 @@ class App {
         }
         return $this->db_instance;
     }
+
 
 }

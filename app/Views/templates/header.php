@@ -100,12 +100,8 @@
                     <?php } elseif (isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
                         <a class="nav-link log-link disp-none" href="index.php?p=users.login">Login</a>
                         <span class="sr-only">(current)</span>
-                        <a class="nav-link log-link disp-none" href="index.php?p=users.signIn">SignIn</a>
-                        <span class="sr-only">(current)</span>
                     <?php } else { ?>
                         <a class="nav-link log-link" href="index.php?p=users.login">Login</a>
-                        <span class="sr-only">(current)</span>
-                        <a class="nav-link log-link" href="index.php?p=users.signIn">SignIn</a>
                         <span class="sr-only">(current)</span>
                     <?php } ?>
                 </nav>

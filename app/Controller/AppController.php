@@ -27,4 +27,8 @@ class AppController extends Controller {
     protected function loadModel($model_name) {
         $this->$model_name = App::getInstance()->getTable($model_name);
     }
+
+    protected function loadCaptchaKey() {
+        App::getInstance()->getCaptchaKey();
+    }
 }

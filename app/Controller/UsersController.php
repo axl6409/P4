@@ -47,7 +47,7 @@ class UsersController extends AppController {
             }
         }
 
-        $form = new BootstrapForm($_POST);
+        $form = new BootstrapForm();
         $this->render('users.login', compact('form', 'errors'));
 
     }
@@ -62,14 +62,52 @@ class UsersController extends AppController {
      */
     public function signIn() {
 
-        $errors = false;
+        $errors = [];
+
         if (!empty($_POST)) {
 
-            if ($_POST['password'] === $_POST['cfpassword']) {
-                $password = sha1($_POST['password']);
+            /*
+             * Check if username field is set || Check if is not max 20 caract
+             */
+            if (!array_key_exists('username', $_POST) || $_POST['username'] == "") {
+                $errors['username'] = "Vous n'avez pas inséré votre pseudo";
+            } elseif (strlen($_POST['username']) >= 20) {
+                $errors['username'] = "Votre pseudo est trop long";
+            }
+
+            /**
+             * Check if password field is set || Check if password an cfpassword are not different
+             */
+            if (!array_key_exists('password', $_POST) || $_POST['password'] == "" &&
+                !array_key_exists('cfpassword', $_POST) || $_POST['cfpassword'] == "") {
+                $errors['password'] = "Vous n'avez pas inseré de mot de passe";
+            } elseif ($_POST['password'] != $_POST['cfpassword']) {
+                $errors['password'] = "Les champs de mot de passe sont differents";
+            }
+
+            /**
+             * Check if mail field is set || Check if mail is in the right format
+             */
+            if (!array_key_exists('mail', $_POST) || $_POST['mail'] == "") {
+                $errors['mail'] = "Vous n'avez pas inseré votre mail";
+            } elseif(filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) == false) {
+                $errors['mail'] = "Votre mail n'est pas valide";
+            }
+
+            $pseudo = htmlspecialchars($_POST['username'], ENT_QUOTES); // Convert special chart and quotes
+            $password = sha1($_POST['password']); // Convert password to SHA1
+
+            /**
+             * If there some errors, displays them in the SESSION
+             * Else Register a new user
+             */
+            if (!empty($errors)) {
+                $_SESSION['errors'] = $errors;
+                header('Location: index.php?p=users.login');
+            } else {
                 $auth = new DBAuth(App::getInstance()->getDb());
                 $result = $auth->signIn([
-                    'username'  => $_POST['username'],
+                    'username'  => $pseudo,
                     'password'  => $password,
                     'mail'      => $_POST['mail'],
                     'role_id'      => '2'
@@ -77,15 +115,9 @@ class UsersController extends AppController {
                 if ($result) {
                     return $this->login($_POST['username'], $_POST['password']);
                 }
-
-            } else {
-                $errors = true;
             }
 
         }
-
-        $form = new BootstrapForm($_POST);
-        $this->render('users.signIn', compact('form', 'errors'));
     }
 
     /**
