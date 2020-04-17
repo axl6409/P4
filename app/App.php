@@ -3,22 +3,12 @@
 use Core\Config;
 use Core\Database\MysqlDatabase;
 
-/**
- * Static class
- * Class App
- */
-
 class App {
 
     public $title = "Jean Forteroche";
     private $db_instance;
-    private $cp_instance;
     private static $_instance;
 
-    /**
-     * Getter for Instance
-     * @return App
-     */
     public static function getInstance() {
 
         if (is_null(self::$_instance)) {
@@ -28,9 +18,6 @@ class App {
         return self::$_instance;
     }
 
-    /**
-     * Init Autoloader
-     */
     public static function load() {
         session_start();
         require ROOT . '/app/Autoloader.php';
@@ -40,20 +27,12 @@ class App {
 
     }
 
-    /**
-     * Getter for Tables
-     * @param $name
-     * @return mixed
-     */
     public function getTable($name) {
         $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
         return new $class_name($this->getDb());
     }
 
-    /**
-     * Getter for Database
-     * @return MysqlDatabase
-     */
+    // Singleton
     public function getDb() {
         $config = Config::getInstance(ROOT . '/config/config.php');
         if (is_null($this->db_instance)) {
@@ -61,6 +40,5 @@ class App {
         }
         return $this->db_instance;
     }
-
 
 }

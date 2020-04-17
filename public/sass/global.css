@@ -161,7 +161,8 @@ main {
 }
 
 .log-form button {
-  margin-left: 40%;
+  width: 40%;
+  margin-left: 35%;
   margin-top: 50px;
 }
 
@@ -574,6 +575,7 @@ main {
 
 .contact-container {
   margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .contact-head {
@@ -852,6 +854,56 @@ main {
   .t-options-value {
     display: none;
   }
+
+  /**
+   * Users Index
+   */
+  .user-account-container {
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .user-account-image {
+    margin-left: 40%;
+    margin-bottom: 5%;
+  }
+
+  .user-account-infos {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .user-account-btn {
+    padding-left: 35%;
+    padding-top: 5%;
+  }
+
+  /**
+   * Users Update
+   */
+  .user-form-section {
+    width: 94%;
+    display: block;
+    margin-bottom: 25%;
+  }
+
+  .user-form-section p {
+    text-align: center;
+  }
+
+  .user-update-img {
+    flex-direction: column;
+  }
+
+  .user-update-img-container {
+    margin-left: 35%;
+  }
+
+  .user-update-img-field {
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
 }
 @media screen and (max-width: 860px) {
   /**
@@ -997,6 +1049,23 @@ main {
 
   .user-delete {
     padding-left: 25%;
+  }
+}
+@media screen and (min-width: 2100px) {
+  /**
+   * Admin
+   */
+  .admin-container {
+    margin-top: 15%;
+    margin-bottom: 20%;
+  }
+
+  .table {
+    text-align: center;
+  }
+
+  .user-delete {
+    padding-left: 43%;
   }
 }
 

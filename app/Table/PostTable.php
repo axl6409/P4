@@ -6,10 +6,6 @@ namespace App\Table;
 
 use Core\Table\Table;
 
-/**
- * Class PostTable
- * @package App\Table
- */
 class PostTable extends Table {
 
     protected $table = 'posts';

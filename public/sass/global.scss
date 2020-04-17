@@ -18,4 +18,7 @@
 @media screen and (max-width: $M) {
   @import "partiels/responsive/medium.scss";
 }
+@media screen and (min-width: $L) {
+  @import "partiels/responsive/large.scss";
+}
 

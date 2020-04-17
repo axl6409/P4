@@ -4,23 +4,23 @@ namespace Core\HTML;
 
 /**
  * Class Form
- * Allow to generate a form quickly and easily
+ * Permet de générer un formulaire rapidement et simplement
  */
 
 class Form {
 
     /**
-     * @var array Data used by the form
+     * @var array Données utilisées par le formulaire
      */
     private $data;
 
     /**
-     * @var string Tag used to surround the fields
+     * @var string Tag utilisé pour entourer les champs
      */
     public $surround = 'p';
 
     /**
-     * @param array $data Data used by the form
+     * @param array $data Données utilisées par le formulaire
      */
     public function __construct($data = array()) {
         $this->data = $data;
@@ -28,7 +28,7 @@ class Form {
 
 
     /**
-     * @param $html string HTML code to surround
+     * @param $html string Code HTML à entourer
      * @return string
      */
     protected function surround($html) {
@@ -36,7 +36,7 @@ class Form {
     }
 
     /**
-     * @param $index string Index of the value to recover
+     * @param $index string Index de la valeur à récuperer
      * @return string
      */
     protected function getValue($index) {
@@ -49,7 +49,6 @@ class Form {
     }
 
     /**
-     * Create an input field
      * @param $name string
      * @param $label
      * @param array $options
@@ -64,7 +63,6 @@ class Form {
 
 
     /**
-     * Create a submit field
      * @return string
      */
     public function submit($name) {

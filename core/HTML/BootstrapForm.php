@@ -5,7 +5,6 @@ namespace Core\HTML;
 class BootstrapForm extends Form {
 
     /**
-     * Create a div to surround inputs
      * @param $html string Code HTML à entourer
      * @return string
      */
@@ -14,7 +13,6 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Create input field
      * @param $name string
      * @param $label
      * @param array $options
@@ -39,13 +37,6 @@ class BootstrapForm extends Form {
         return $this->surround($label . $input);
     }
 
-    /**
-     * Create select field
-     * @param $name
-     * @param $label
-     * @param array $options
-     * @return string
-     */
     public function select($name, $label, $options = []) {
         $label = '<label>' . $label . '</label>';
         $input = '<select class="form-control" name="' . $name . '">';
@@ -66,7 +57,6 @@ class BootstrapForm extends Form {
 
 
     /**
-     * Create submit field
      * @return string
      */
     public function submit($name) {

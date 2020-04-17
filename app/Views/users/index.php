@@ -1,7 +1,7 @@
 
 <div class="container admin-container">
     <div class="row">
-        <h1>Mon Compte</h1>
+        <h1 class="admin-title">Mon Compte</h1>
 
         <div class="col-md-12 user-account-container">
 

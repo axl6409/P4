@@ -196,3 +196,55 @@
 .t-options-value {
   display: none;
 }
+
+/**
+ * Users Index
+ */
+
+.user-account-container {
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.user-account-image {
+  margin-left: 40%;
+  margin-bottom: 5%;
+}
+
+.user-account-infos {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.user-account-btn {
+  padding-left: 35%;
+  padding-top: 5%;
+}
+
+/**
+ * Users Update
+ */
+
+.user-form-section {
+  width: 94%;
+  display: block;
+  margin-bottom: 25%;
+}
+
+.user-form-section p {
+  text-align: center;
+}
+
+.user-update-img {
+  flex-direction: column;
+}
+
+.user-update-img-container {
+  margin-left: 35%;
+}
+
+.user-update-img-field {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}

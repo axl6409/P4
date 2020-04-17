@@ -6,15 +6,8 @@ namespace App\Controller\Admin;
 use Core\HTML\BootstrapForm;
 use Core\HTML\Upload;
 
-/**
- * Class ImagesController
- * @package App\Controller\Admin
- */
 class ImagesController extends AppController {
 
-    /**
-     * ImagesController constructor.
-     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('PostsImage');

@@ -2,7 +2,7 @@
 <div class="container admin-container">
     <div class="row">
 
-        <h1 class="user-update-title">Modifier vos informations</h1>
+        <h1 class="admin-title">Modifier vos informations</h1>
 
         <?php if ($error) { ?>
             <?= $error; ?>
