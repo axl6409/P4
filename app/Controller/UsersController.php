@@ -76,7 +76,7 @@ class UsersController extends AppController {
 
     public function index() {
         if (!isset($_SESSION['auth'])) {
-
+            header('Location: index.php?p=users.login');
         } else {
             $user = $this->User->find($_SESSION['auth']);
             $this->render('users.index', compact('user'));
