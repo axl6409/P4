@@ -16,7 +16,10 @@
                             <a class="" href="index.php?p=contact.index">Contact</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a class="" href="index.php?p=users.login">Login</a>
+                            <a class="" href="index.php?p=users.login">Connexion</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a class="" href="index.php?p=users.signIn">Inscription</a>
                         </li>
                     </ul>
                 </div>

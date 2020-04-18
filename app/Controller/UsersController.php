@@ -32,37 +32,85 @@ class UsersController extends AppController {
             }
         }
 
-        $form = new BootstrapForm($_POST);
+        $form = new BootstrapForm();
         $this->render('users.login', compact('form', 'errors'));
 
     }
 
     public function signIn() {
+        $form = new BootstrapForm();
+        $this->render('users.signIn', compact('form'));
+    }
 
-        $errors = false;
+    public function register() {
+
+        $captchaKey = require(ROOT . '/config/captcha.php');
+        $errors = [];
+
         if (!empty($_POST)) {
 
-            if ($_POST['password'] === $_POST['cfpassword']) {
-                $password = sha1($_POST['password']);
-                $auth = new DBAuth(App::getInstance()->getDb());
-                $result = $auth->signIn([
-                    'username'  => $_POST['username'],
-                    'password'  => $password,
-                    'mail'      => $_POST['mail'],
-                    'role_id'      => '2'
-                ]);
-                if ($result) {
-                    return $this->login($_POST['username'], $_POST['password']);
-                }
-
+            if (isset($_POST['g-recaptcha-response'])) {
+                $captcha = $_POST['g-recaptcha-response'];
             } else {
-                $errors = true;
+                $captcha = false;
             }
 
-        }
+            if (!$captcha) {
 
-        $form = new BootstrapForm($_POST);
-        $this->render('users.signIn', compact('form', 'errors'));
+                //Do something with error
+                $errors['captcha'] = "Il y à une erreur avec le captcha !";
+
+            } else {
+
+                $secret   = $captchaKey;
+                $response = file_get_contents(
+                    "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
+                );
+                // use json_decode to extract json response
+                $response = json_decode($response);
+
+                if ($response->success === false) {
+                    $errors['captcha'] = "You're a Robot !";
+                }
+            }
+
+            //... The Captcha is valid you can continue with the rest of your code
+            //... Add code to filter access using $response . score
+            if ($response->success == true) {
+
+                $username = $_POST['username'];
+                if (!preg_match("/^[0-9a-zA-Z ]*$/",$username)) { //si c'est pas un mot
+                    $errors['username'] = "Only letters and white space allowed";
+                }
+
+                if ($_POST['password'] !== $_POST['cfpassword']) {
+                    $errors['password'] = "Les champs de mot de passe sont differents";
+                }
+
+                if (!array_key_exists('mail', $_POST) || $_POST['mail'] == '') {
+                    $errors['mail'] = "Vous n'avez pas renseigné votre email";
+                } elseif(filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) == false) {
+                    $errors['mail'] = "Vous n'avez pas renseigné un email valide";
+                }
+
+                if (!empty($errors)) {
+                    $_SESSION['errors'] = $errors;
+                    header('Location: index.php?p=users.signIn');
+                } else {
+                    $password = sha1($_POST['password']);
+                    $auth = new DBAuth(App::getInstance()->getDb());
+                    $result = $auth->signIn([
+                        'username'  => $username,
+                        'password'  => $password,
+                        'mail'      => $_POST['mail'],
+                        'role_id'      => '2'
+                    ]);
+                    if ($result) {
+                        return $this->login($_POST['username'], $_POST['password']);
+                    }
+                }
+            }
+        }
     }
 
 

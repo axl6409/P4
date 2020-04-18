@@ -103,10 +103,14 @@
                         <a class="btn btn-outline-danger account-btn" href="index.php?p=users.logout">Déconnexion</a>
                         <span class="sr-only">(current)</span>
                     <?php } elseif (isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
-                        <a class="nav-link log-link disp-none" href="index.php?p=users.login">Login</a>
+                        <a class="nav-link log-link disp-none" href="index.php?p=users.login">Connexion</a>
+                        <span class="sr-only">(current)</span>
+                        <a class="nav-link log-link disp-none" href="index.php?p=users.signIn">Inscription</a>
                         <span class="sr-only">(current)</span>
                     <?php } else { ?>
-                        <a class="nav-link log-link" href="index.php?p=users.login">Login</a>
+                        <a class="nav-link log-link" href="index.php?p=users.login">Connexion</a>
+                        <span class="sr-only">(current)</span>
+                        <a class="nav-link log-link" href="index.php?p=users.signIn">Inscription</a>
                         <span class="sr-only">(current)</span>
                     <?php } ?>
                 </nav>
