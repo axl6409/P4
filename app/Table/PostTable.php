@@ -6,8 +6,16 @@ namespace App\Table;
 
 use Core\Table\Table;
 
+/**
+ * Class PostTable
+ * @package App\Table
+ */
 class PostTable extends Table {
 
+    /**
+     * BDD Table - Posts
+     * @var string
+     */
     protected $table = 'posts';
 
     /**

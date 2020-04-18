@@ -6,8 +6,15 @@ namespace App\Controller\Admin;
 use Core\HTML\BootstrapForm;
 use Core\HTML\Upload;
 
+/**
+ * Class OptionsController
+ * @package App\Controller\Admin
+ */
 class OptionsController extends AppController {
 
+    /**
+     * OptionsController constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +22,9 @@ class OptionsController extends AppController {
         $this->loadModel('OptionsImage');
     }
 
+    /**
+     * 
+     */
     public function index() {
         $options = $this->Option->all();
         $this->render('admin.options.index', compact('options'));

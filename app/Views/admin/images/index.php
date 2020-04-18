@@ -1,7 +1,15 @@
-<div class="container admin-container">
-    <div class="row">
+<!--
+ -- Admin ****************
+ -- Main page for images
+ -->
+
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
+
+        <!-- Main Title -->
         <h1 class="admin-title">Administrer les Images</h1>
 
+        <!-- Chapter Images -->
         <div class="col-md-12 admin-sections">
 
             <h2 class="admin-sub-title">Images des Chapitres</h2>
@@ -21,6 +29,7 @@
 
         </div>
 
+        <!-- Options Images -->
         <div class="col-md-12 admin-sections">
 
             <h2 class="admin-sub-title">Images du Site</h2>

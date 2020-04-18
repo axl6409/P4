@@ -1,10 +1,15 @@
+<!--
+ -- Admin ****************
+ -- Edit page for posts
+ -->
 
 <?php if(isset($start)) { ?>
     <?= $start; ?>
 <?php } ?>
 
-<div class="admin-container">
-    <div class="container">
+<div class="admin-container"> <!-- Container -->
+    <div class="container"> <!-- Row -->
+
         <form method="post" enctype="multipart/form-data">
             <div class="container">
                 <div class="row">
@@ -28,8 +33,8 @@
             <?= $form->input('content', 'Contenu de l\'article', ['type' => 'textarea']); ?>
             <button type="submit" class="btn btn-primary edit-submit">Sauvegarder</button>
         </form>
-    </div>
 
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->
 
 

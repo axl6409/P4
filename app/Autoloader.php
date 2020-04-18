@@ -7,15 +7,15 @@ namespace App;
 class Autoloader{
 
     /**
-     * Enregistre notre autoloader
+     * Register the Autoloader
      */
     static function register(){
         spl_autoload_register(array(__CLASS__, 'autoload'));
     }
 
     /**
-     * Inclue le fichier correspondant à notre classe
-     * @param $class string Le nom de la classe à charger
+     * Include the file that matches with class
+     * @param $class string Name of Class to load
      */
     static function autoload($class){
         if (strpos($class, __NAMESPACE__ . '\\') === 0){

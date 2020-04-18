@@ -1,6 +1,12 @@
+<!--
+ -- Public ****************
+ -- Main users page
+ -->
 
-<div class="container admin-container">
-    <div class="row">
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
+
+        <!-- Main Title -->
         <h1 class="admin-title">Mon Compte</h1>
 
         <div class="col-md-12 user-account-container">
@@ -21,7 +27,5 @@
 
         </div>
 
-
-
-    </div>
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->

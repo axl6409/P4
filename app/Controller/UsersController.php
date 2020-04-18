@@ -2,18 +2,32 @@
 
 namespace App\Controller;
 
+use Cassandra\Index;
 use Core\Auth\DBAuth;
 use Core\HTML\BootstrapForm;
 use \App;
 use Core\HTML\Upload;
 
+/**
+ * Class UsersController
+ * @package App\Controller
+ */
 class UsersController extends AppController {
 
+    /**
+     * UsersController constructor.
+     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('User');
     }
 
+    /**
+     * Manage login page
+     * Use recaptcha
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\Auth\DBAuth
+     */
     public function login() {
 
         $captchaKey = require(ROOT . '/config/captcha.php');
@@ -70,11 +84,21 @@ class UsersController extends AppController {
 
     }
 
+    /**
+     * Manage SignIn page
+     * @uses \Core\HTML\BootstrapForm
+     */
     public function signIn() {
         $form = new BootstrapForm();
         $this->render('users.signIn', compact('form'));
     }
 
+    /**
+     * Register a new user
+     * Use recaptcha
+     * @uses \Core\Auth\DBAuth
+     * @uses \Core\HTML\BootstrapForm
+     */
     public function register() {
 
         $captchaKey = require(ROOT . '/config/captcha.php');
@@ -146,7 +170,9 @@ class UsersController extends AppController {
         }
     }
 
-
+    /**
+     * Logout the user | And unset & destroy the SESSION
+     */
     public function logout() {
         if (!empty($_SESSION)) {
             unset($_SESSION);
@@ -155,6 +181,11 @@ class UsersController extends AppController {
         }
     }
 
+    /**
+     * Manage the main page for user account
+     * Display informations of the user
+     * @uses \App\Table\UserTable
+     */
     public function index() {
         if (!isset($_SESSION['auth'])) {
             header('Location: index.php?p=users.login');
@@ -164,6 +195,14 @@ class UsersController extends AppController {
         }
     }
 
+    /**
+     * Manage the update page for the user informations
+     * Use the Upload class for user Image
+     * @uses \App\Table\UserTable
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\HTML\Upload
+     * @return bool|string|void
+     */
     public function update() {
 
         if(!isset($_SESSION['auth'])) {

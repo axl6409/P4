@@ -12,6 +12,10 @@ use Core\Table\Table;
  */
 class CommentTable extends Table {
 
+    /**
+     * BDD Table - Comments
+     * @var string
+     */
     protected $table = 'comments';
 
     /**

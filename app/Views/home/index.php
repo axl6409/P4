@@ -1,5 +1,9 @@
+<!--
+ -- Public ****************
+ -- Main page for Home
+ -->
 
-<div class="hero" style="background-image: url('public/assets/<?= $heroImage->name ;?>')">
+<div class="hero" style="background-image: url('public/assets/<?= $heroImage->name ;?>')"> <!-- Hero -->
     <div class="hero-overlay"></div>
     <div class="hero-container">
 
@@ -7,14 +11,16 @@
         <?= $options[2]->value ;?>
 
     </div>
-</div>
+</div> <!-- End Hero -->
 
-<div class="container home-container">
-    <div class="row">
+<div class="container home-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
+
         <div class="col-md-12">
 
-            <div class="row section">
+            <div class="row section"> <!-- Row -->
 
+                <!-- First Section -->
                 <div class="col-md-12 section-first">
                     <h2 class="section-title">A Propos</h2>
 
@@ -31,10 +37,12 @@
                 <div class="col-md-6 section-quote">
                     <?= $options[6]->value ;?>
                 </div>
-            </div>
 
-            <div class="row section">
+            </div> <!-- End Row -->
 
+            <div class="row section"> <!-- Row -->
+
+                <!-- Second Section -->
                 <div class="col-md-7 section-first">
                     <h2 class="section-title">Découvrez mon nouveau roman en ligne</h2>
 
@@ -50,11 +58,11 @@
                     <img class="box-shadow" src='public/assets/<?= $romanImage->name ;?>' alt="">
                 </div>
 
-            </div>
+            </div> <!-- End Row -->
 
         </div>
 
-    </div>
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->
 
 

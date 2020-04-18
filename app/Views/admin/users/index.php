@@ -1,7 +1,12 @@
+<!--
+ -- Admin ****************
+ -- Main page for users
+ -->
 
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
 
-<div class="container admin-container">
-    <div class="row">
+        <!-- Main Title -->
         <h1 class="admin-title">Gestion des utilisateurs</h1>
 
         <table class="table">
@@ -32,5 +37,6 @@
 
             </tbody>
         </table>
-    </div>
-</div>
+
+    </div> <!-- End Row -->
+</div> <!-- End Container -->

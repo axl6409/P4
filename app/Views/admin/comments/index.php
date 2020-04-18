@@ -1,9 +1,17 @@
-<div class="container admin-container">
-    <div class="row">
+
+<!--
+ -- Admin ****************
+ -- Main page for comments
+ -->
+
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
         <div class="col-md-12">
 
+            <!-- Main Title -->
             <h1 class="admin-title">Administrer les Commentaires</h1>
 
+            <!-- Comments To Check -->
             <div class="admin-sections">
                 <h2 class="admin-sub-title">Commentaires à vérifier</h2>
 
@@ -42,7 +50,7 @@
                 </table>
             </div>
 
-
+            <!-- All Comments -->
             <div class="admin-sections">
                 <h2 class="admin-sub-title">Tous les commentaires</h2>
 

@@ -10,7 +10,6 @@
         <meta name="og:description" content="Jean Forteroche est un écrivain français, passionné par l'écriture et la puissance des mots, il publie son nouveau roman gratuitement en ligne">
         <meta name="og:image" content="https://projets.alexandre-celier.fr/P4/public/assets/writer-machine.jpg">
         <title><?= App::getInstance()->title; ?></title>
-
         <style>
             main {
                 padding-top: 150px;
@@ -33,12 +32,18 @@
         </style>
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- Custom SASS Stylesheets  -->
         <link href="public/sass/global.css" rel="stylesheet">
+        <!-- Google ReCaptcha V3 API -->
         <script src="https://www.google.com/recaptcha/api.js?render=6Lf1pegUAAAAAIgBXbP59G9g6Ljak4ZvVe5bD10d"></script>
     </head>
 
     <body>
+
+        <!-- Header -->
         <header>
+
+            <!-- Admin NavBar -->
             <?php if(isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
                 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse admin-bar">
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,6 +77,8 @@
                     </div>
                 </nav>
             <?php } ?>
+
+            <!-- Regular User NavBar -->
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
             <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse public-bar admin-bar-active">
                 <?php } else {?>
@@ -114,6 +121,8 @@
                         <span class="sr-only">(current)</span>
                     <?php } ?>
                 </nav>
+            </nav>
+
         </header>
 
 

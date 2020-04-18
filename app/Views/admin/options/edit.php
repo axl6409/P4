@@ -1,54 +1,59 @@
+<!--
+ -- Admin ****************
+ -- Edit page for options
+ -->
 
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
 
-<div class="admin-container">
-    <div class="container">
-        <div class="row">
+        <?php if(isset($error)) { ?>
+            <?= $error; ?>
+        <?php } ?>
+        <?php if(isset($start)) { ?>
+            <?= $start; ?>
+        <?php } ?>
 
-            <?php if(isset($error)) { ?>
-                <?= $error; ?>
+        <!-- Option is an Image -->
+        <?php if ($option->type == 3){ ;?>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <?php if (!empty($postImage->name)) { ?>
+
+                <div class="admin-index-image">
+                    <img src="public/assets/<?= $postImage->name ;?>" alt="">
+                </div>
+
             <?php } ?>
-            <?php if(isset($start)) { ?>
-                <?= $start; ?>
-            <?php } ?>
+            <?= $form->input('value', 'Changer d\'image', ['type' => 'file']); ?>
+            <?= $form->select('name', 'Selectionner une image', $images) ;?>
+            <?= $form->submit('Modifier'); ?>
 
-            <?php if ($option->type == 3){ ;?>
+        </form>
 
-            <form method="post" enctype="multipart/form-data">
+        <!-- Option is a long text who need an editor -->
+        <?php } elseif($option->type == 2) { ?>
+        <div class="col-md-12">
+            <form method="post">
 
-                <?php if (!empty($postImage->name)) { ?>
-
-                    <div class="admin-index-image">
-                        <img src="public/assets/<?= $postImage->name ;?>" alt="">
-                    </div>
-
-                <?php } ?>
-                <?= $form->input('value', 'Changer d\'image', ['type' => 'file']); ?>
-                <?= $form->select('name', 'Selectionner une image', $images) ;?>
+                <?= $form->input('value', 'Nouvelle valeur', ['type' => 'textarea']) ;?>
                 <?= $form->submit('Modifier'); ?>
 
             </form>
+        </div>
 
-            <?php } elseif($option->type == 2) { ?>
+        <!-- Option is a short text -->
+        <?php } elseif ($option->type == 1) { ?>
             <div class="col-md-12">
                 <form method="post">
 
-                    <?= $form->input('value', 'Nouvelle valeur', ['type' => 'textarea']) ;?>
+                    <?= $form->input('value', 'Nouvelle valeur') ;?>
                     <?= $form->submit('Modifier'); ?>
 
                 </form>
             </div>
-
-            <?php } elseif ($option->type == 1) { ?>
-                <div class="col-md-12">
-                    <form method="post">
-
-                        <?= $form->input('value', 'Nouvelle valeur') ;?>
-                        <?= $form->submit('Modifier'); ?>
-
-                    </form>
-                </div>
-            <?php } ?>
-        </div>
+        <?php } ?>
     </div>
 </div>
+
 

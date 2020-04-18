@@ -1,8 +1,15 @@
+<!--
+ -- Admin ****************
+ -- Main page for options
+ -->
 
-<div class="container admin-container">
-    <div class="row">
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
+
+        <!-- Main Title -->
         <h1 class="admin-title">Administrer les Options du Site</h1>
 
+        <!-- All the options -->
         <div class="col-md-12">
             <table class="table">
                 <thead>

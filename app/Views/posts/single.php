@@ -1,27 +1,34 @@
+<!--
+ -- Public ****************
+ -- Single Post page
+ -->
 
 <?php if (!empty($postImage)) { ;?>
-<div class="hero" style="background-image: url('public/img/<?= $postImage->name ;?>');">
+<div class="hero" style="background-image: url('public/img/<?= $postImage->name ;?>');"> <!-- Hero -->
     <div class="hero-overlay"></div>
     <div class="hero-container">
         <h1><?= $post->title; ?></h1>
     </div>
-</div>
+</div> <!-- End Row -->
 <?php } ?>
 
-<div class="container single-container">
-    <div class="row">
+<div class="container single-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
 
         <div class="col-md-12">
+
+            <!-- Post Content -->
             <div class="single-content">
                 <p><?= $post->content; ?></p>
             </div>
+            <!-- End Post Content -->
 
+            <!-- New Comment -->
             <div class="single-comment">
                 <button class="btn btn-outline-primary" id="newComment">
                     Ajouter un commentaire
                 </button>
             </div>
-
 
             <?php if(isset($_SESSION['auth'])) { ?>
             <div class="new-comment" id="commentForm">
@@ -35,6 +42,9 @@
             <?php } else { ?>
                 <p class="new-comment" id="commentForm" style="text-align: center">Vous devez avoir un compte pour pouvoir poster un commentaire.</p>
             <?php } ?>
+            <!-- End New Comment -->
+
+            <!-- Post Comments -->
             <div class="lasts-comments">
                 <ul>
                     <h2 class="lasts-comments-title">Derniers Commentaires</h2>
@@ -68,11 +78,12 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
+            <!-- End Post Comments -->
 
         </div>
 
-    </div>
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->
 
 
 

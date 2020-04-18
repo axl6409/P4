@@ -1,12 +1,20 @@
-<div class="container admin-container">
-    <div class="row">
+<!--
+ -- Admin ****************
+ -- Main page for posts
+ -->
+
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
+
         <div class="col-md-12">
+
+            <!-- Main Title -->
             <h1 class="admin-title">Administrer les Histoires</h1>
 
+            <!-- New Chapter -->
             <p class="new-post-btn">
                 <a href="index.php?p=admin.posts.add" class="btn btn-outline-success">Nouveau Chapitre</a>
             </p>
-
 
             <table class="table posts-list">
                 <thead>
@@ -38,9 +46,10 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
+
         </div>
 
-    </div>
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->
 
 

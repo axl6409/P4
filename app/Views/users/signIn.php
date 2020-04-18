@@ -1,9 +1,15 @@
-<div class="admin-container container">
-    <div class="row">
+<!--
+ -- Public ****************
+ -- Sign In page
+ -->
+
+<div class="admin-container container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
 
         <div class="col-md-12">
 
-            <h2 class="admin-title">Inscription</h2>
+            <!-- Main Title -->
+            <h1 class="admin-title">Inscription</h1>
 
             <?php if (array_key_exists('errors', $_SESSION)) : ?>
                 <div class="alert alert-danger col-md-12">
@@ -23,5 +29,5 @@
 
         </div>
 
-    </div>
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->

@@ -1,7 +1,12 @@
+<!--
+ -- Public ****************
+ -- Update Users Infos
+ -->
 
-<div class="container admin-container">
-    <div class="row">
+<div class="container admin-container"> <!-- Container -->
+    <div class="row"> <!-- Row -->
 
+        <!-- Main Title -->
         <h1 class="admin-title">Modifier vos informations</h1>
 
         <?php if ($error) { ?>
@@ -12,6 +17,7 @@
 
 
         <div class="col-md-12">
+
             <form method="post" enctype="multipart/form-data">
 
                 <div class="user-form-section">
@@ -41,11 +47,11 @@
                 </div>
 
             </form>
+
         </div>
 
-
-    </div>
-</div>
+    </div> <!-- End Row -->
+</div> <!-- End Container -->
 
 
 

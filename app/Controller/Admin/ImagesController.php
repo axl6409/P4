@@ -6,20 +6,38 @@ namespace App\Controller\Admin;
 use Core\HTML\BootstrapForm;
 use Core\HTML\Upload;
 
+/**
+ * Class ImagesController
+ * @package App\Controller\Admin
+ */
 class ImagesController extends AppController {
 
+    /**
+     * ImagesController constructor.
+     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('PostsImage');
         $this->loadModel('OptionsImage');
     }
 
+    /**
+     * Manage the images page on admin
+     * @uses \App\Table\PostsImageTable
+     * @uses \App\Table\OptionsImageTable
+     */
     public function index() {
         $postsImages = $this->PostsImage->all();
         $optionsImages = $this->OptionsImage->all();
         $this->render('admin.images.index', compact('postsImages', 'optionsImages'));
     }
 
+    /**
+     * Add a new Image
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\HTML\Upload
+     * @return bool|string|void
+     */
     public function add() {
 
         $error = false;
@@ -62,7 +80,11 @@ class ImagesController extends AppController {
         $this->render('admin.images.add', compact( 'form', 'error'));
     }
 
-
+    /**
+     * Let the admin to delete an Image link on the options
+     * Delete the image in DB & in server folder (assets)
+     * @uses \App\Table\OptionsImageTable
+     */
     public function delOption() {
 
         if (!empty($_POST)) {
@@ -73,6 +95,11 @@ class ImagesController extends AppController {
 
     }
 
+    /**
+     * Let the Admin to delete an Image link on the posts
+     * Delete the image in DB & in server folder (img)
+     * @uses \App\Table\PostsImageTable
+     */
     public function delPost() {
 
         if (!empty($_POST)) {
