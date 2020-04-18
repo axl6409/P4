@@ -16,19 +16,52 @@ class UsersController extends AppController {
 
     public function login() {
 
-        $errors = false;
+        $captchaKey = require(ROOT . '/config/captcha.php');
+        $errors = "";
         if (!empty($_POST)) {
-            $auth = new DBAuth(App::getInstance()->getDb());
-            $password = sha1($_POST['password']);
-            if ($auth->login($_POST['username'], $password)) {
-                if ($auth->logged()) {
-                    header('Location: index.php?p=admin.posts.index');
-                } else {
-                    header('Location: index.php');
-                }
+
+            if (isset($_POST['g-recaptcha-response'])) {
+                $captcha = $_POST['g-recaptcha-response'];
+            } else {
+                $captcha = false;
+            }
+
+            if (!$captcha) {
+
+                //Do something with error
+                $errors = "Il y à une erreur avec le captcha !";
 
             } else {
-                $errors = true;
+
+                $secret   = $captchaKey;
+                $response = file_get_contents(
+                    "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
+                );
+                // use json_decode to extract json response
+                $response = json_decode($response);
+
+                if ($response->success === false) {
+                    $errors = "You're a Robot !";
+                }
+            }
+
+            //... The Captcha is valid you can continue with the rest of your code
+            //... Add code to filter access using $response . score
+            if ($response->success == true) {
+
+                $auth = new DBAuth(App::getInstance()->getDb());
+                $password = sha1($_POST['password']);
+                if ($auth->login($_POST['username'], $password)) {
+                    if ($auth->logged()) {
+                        header('Location: index.php?p=admin.posts.index');
+                    } else {
+                        header('Location: index.php');
+                    }
+
+                } else {
+                    $errors = "Vos identifiants sont incorrects";
+                }
+
             }
         }
 
@@ -80,7 +113,7 @@ class UsersController extends AppController {
 
                 $username = $_POST['username'];
                 if (!preg_match("/^[0-9a-zA-Z ]*$/",$username)) { //si c'est pas un mot
-                    $errors['username'] = "Only letters and white space allowed";
+                    $errors['username'] = "Uniquement des chiffres et lettres sont acceptés pour le pseudo";
                 }
 
                 if ($_POST['password'] !== $_POST['cfpassword']) {
