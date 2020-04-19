@@ -7,19 +7,39 @@ use \DateTimeZone;
 use Core\HTML\BootstrapForm;
 use Core\HTML\Upload;
 
+/**
+ * Class PostsController
+ * @package App\Controller\Admin
+ */
 class PostsController extends AppController {
 
+    /**
+     * PostsController constructor.
+     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('Post');
         $this->loadModel('PostsImage');
     }
 
+    /**
+     * Display all Posts on main admin page
+     *@uses \App\Table\PostTable
+     */
     public function index() {
         $posts = $this->Post->all();
         $this->render('admin.posts.index', compact('posts'));
     }
 
+    /**
+     * Let the admin to add a new Post
+     * @uses DateTime
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\HTML\Upload
+     * @uses \App\Table\PostsImageTable
+     * @return string|void
+     * @throws \Exception
+     */
     public function add() {
 
         $date = new DateTime(null, new DateTimeZone('Europe/Paris'));
@@ -96,6 +116,14 @@ class PostsController extends AppController {
         $this->render('admin.posts.edit', compact( 'form', 'images'));
     }
 
+    /**
+     * Let the admin to edit an existing post
+     * @uses \App\Table\PostTable
+     * @uses \App\Table\PostsImageTable
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \Core\HTML\Upload
+     * @return string|void
+     */
     public function edit() {
 
         $post = $this->Post->find($_GET['id']);
@@ -172,6 +200,10 @@ class PostsController extends AppController {
 
     }
 
+    /**
+     * Let the admin to delete a post
+     * @uses \App\Table\PostTable
+     */
     public function delete() {
 
         if (!empty($_POST)) {

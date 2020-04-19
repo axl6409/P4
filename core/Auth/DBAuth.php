@@ -4,10 +4,21 @@ namespace Core\Auth;
 
 use Core\Database\Database;
 
+/**
+ * Class DBAuth
+ * @package Core\Auth
+ */
 class DBAuth {
 
+    /**
+     * @var Database
+     */
     private $db;
 
+    /**
+     * DBAuth constructor.
+     * @param Database $db
+     */
     public function __construct(Database $db) {
         $this->db = $db;
     }
@@ -31,6 +42,11 @@ class DBAuth {
         return false;
     }
 
+    /**
+     * Sign in for new users | use array of fields to insert in DB
+     * @param $fields
+     * @return mixed
+     */
     public function signIn($fields) {
         $sql_parts = [];
         $attributes = [];
@@ -42,6 +58,10 @@ class DBAuth {
         return $this->db->prepare("INSERT INTO users SET $sql_part", $attributes, true);
     }
 
+    /**
+     * Check if is logged for the admin and return the auth status
+     * @return bool
+     */
     public function logged() {
         if($_SESSION['role'] === '1') {
             return isset($_SESSION['auth']);

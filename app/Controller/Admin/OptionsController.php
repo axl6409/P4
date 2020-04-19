@@ -23,13 +23,22 @@ class OptionsController extends AppController {
     }
 
     /**
-     * 
+     * Manage all the options on the main page
+     * @uses \App\Table\OptionTable
      */
     public function index() {
         $options = $this->Option->all();
         $this->render('admin.options.index', compact('options'));
     }
 
+    /**
+     * Let Admin to edit an option
+     * @uses \App\Table\OptionTable
+     * @uses \Core\HTML\BootstrapForm
+     * @uses \App\Table\OptionsImageTable
+     * @uses \Core\HTML\Upload
+     * @return string|void
+     */
     public function edit() {
 
         $option = $this->Option->find($_GET['id']);

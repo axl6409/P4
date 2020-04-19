@@ -5,14 +5,41 @@ namespace Core\Database;
 // use the PHP PDO at ROOT
 use \PDO;
 
+/**
+ * Class MysqlDatabase
+ * @package Core\Database
+ */
 class MysqlDatabase extends Database{
 
+    /**
+     * Name of the DB
+     * @var string
+     */
     private $db_name;
+    /**
+     * User in DB
+     * @var string
+     */
     private $db_user;
+    /**
+     * Password of DB
+     * @var string
+     */
     private $db_pass;
+    /**
+     * Host for the DB
+     * @var string
+     */
     private $db_host;
     private $pdo;
 
+    /**
+     * MysqlDatabase constructor.
+     * @param $db_name
+     * @param $db_user
+     * @param $db_pass
+     * @param $db_host
+     */
     public function __construct($db_name, $db_user, $db_pass, $db_host) {
 
         $this->db_name = $db_name;
@@ -22,6 +49,10 @@ class MysqlDatabase extends Database{
 
     }
 
+    /**
+     * Connexion to DB with the PDO method
+     * @return PDO
+     */
     private function getPDO() {
         if($this->pdo === null) {
             $pdo = new PDO('mysql:dbname='.$this->db_name.';host='.$this->db_host.'', $this->db_user, $this->db_pass);
@@ -32,6 +63,13 @@ class MysqlDatabase extends Database{
         return $this->pdo;
     }
 
+    /**
+     * Query method
+     * @param $statement
+     * @param null $class_name
+     * @param bool $one
+     * @return array|false|mixed|\PDOStatement
+     */
     public function query($statement, $class_name = null, $one = false) {
         $req = $this->getPDO()->query($statement);
 
@@ -56,6 +94,14 @@ class MysqlDatabase extends Database{
         return $datas;
     }
 
+    /**
+     * Prepare method
+     * @param $statement
+     * @param $attributes
+     * @param null $class_name
+     * @param bool $one
+     * @return array|bool|mixed
+     */
     public function prepare($statement, $attributes, $class_name = null, $one = false) {
         $req = $this->getPDO()->prepare($statement);
         $res = $req->execute($attributes);
@@ -81,6 +127,10 @@ class MysqlDatabase extends Database{
         return $datas;
     }
 
+    /**
+     * Last Insert Id PHP method
+     * @return string
+     */
     public function lastInsertId() {
         return $this->getPDO()->lastInsertId();
     }
