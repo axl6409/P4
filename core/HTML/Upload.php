@@ -3,7 +3,12 @@
 
 namespace Core\HTML;
 
+/**
+ * Class Upload
+ * @package Core\HTML
+ */
 class Upload {
+
 
     private $target_dir = ROOT ."/public/img/";
     private $altern_dir = ROOT ."/public/assets/";
@@ -16,6 +21,11 @@ class Upload {
     private $imageFileType;
     private $fileErrors;
 
+    /**
+     * Main method, start the upload and call the others
+     * @param array $target
+     * @return string
+     */
     public function startUpload($target = []) {
 
 
@@ -75,6 +85,10 @@ class Upload {
 
     }
 
+    /**
+     * Check the type of the image
+     * @return bool
+     */
     protected function checkType() {
         $this->imageFileType = strtolower(pathinfo($this->target_file,PATHINFO_EXTENSION));
         if ($this->imageFileType != "jpg" && $this->imageFileType != "png" && $this->imageFileType != "jpeg" && $this->imageFileType != "gif") {
@@ -87,6 +101,10 @@ class Upload {
 
     }
 
+    /**
+     * Check the size of the image
+     * @return bool
+     */
     protected function checkSize() {
         if ($this->fileSize > $this->maxSize) {
             $this->uploadOk = false;
@@ -97,6 +115,9 @@ class Upload {
         }
     }
 
+    /*
+     * Check if the image already exists
+     */
     protected function checkExists() {
         if (file_exists($this->target_file)) {
             $this->uploadOk = false;
@@ -107,6 +128,11 @@ class Upload {
         }
     }
 
+    /**
+     * Render a result message
+     * @param $html
+     * @return string
+     */
     public function result($html) {
         return "<div class=\"submit-message alert alert-danger\">{$html}</div>";
     }
