@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <!-- Custom SASS Stylesheets  -->
         <link href="public/sass/global.css" rel="stylesheet">
+        <link rel="icon" href="public/assets/logojf.png">
         <!-- Google ReCaptcha V3 API -->
         <script src="https://www.google.com/recaptcha/api.js?render=6Lf1pegUAAAAAIgBXbP59G9g6Ljak4ZvVe5bD10d"></script>
     </head>
@@ -50,7 +51,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <a class="navbar-brand" href="index.php?p=admin.posts.index">Admin</a>
+                    <a class="navbar-brand" href="index.php?p=admin.posts.index">Chapitres</a>
 
                     <div class="collapse navbar-collapse resp-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
