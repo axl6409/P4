@@ -127,17 +127,23 @@ class UsersController extends AppController {
                 $response = json_decode($response);
 
                 if ($response->success === false) {
-                    $errors['captcha'] = "You're a Robot !";
+                    $errors['captcha'] = var_dump($response);
                 }
             }
 
             //... The Captcha is valid you can continue with the rest of your code
             //... Add code to filter access using $response . score
-            if ($response->success == true) {
+            if ($response->success == true && $response->score <= 0.9) {
 
                 $username = $_POST['username'];
                 if (!preg_match("/^[0-9a-zA-Z ]*$/",$username)) { //si c'est pas un mot
                     $errors['username'] = "Uniquement des chiffres et lettres sont acceptés pour le pseudo";
+                }
+
+                if ($userExists = $this->User->findByName($username)) {
+                    if ($userExists->username == $username) {
+                        $errors['username'] = "Ce pseudo existe déjà, veuillez en choisir un autre";
+                    }
                 }
 
                 if ($_POST['password'] !== $_POST['cfpassword']) {
@@ -163,11 +169,12 @@ class UsersController extends AppController {
                         'role_id'      => '2'
                     ]);
                     if ($result) {
-                        return $this->login($_POST['username'], $_POST['password']);
+                        header('Location: index.php?p=users.login');
                     }
                 }
             }
         }
+
     }
 
     /**

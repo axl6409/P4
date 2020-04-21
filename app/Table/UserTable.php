@@ -41,5 +41,14 @@ class UserTable extends Table {
         ");
     }
 
+    /**
+     * Find a result in a table by the name
+     * @param $name
+     * @return mixed
+     */
+    public function findByName($name) {
+        return $this->query("SELECT * FROM {$this->table} WHERE username = ?", [$name], true);
+    }
+
 
 }
