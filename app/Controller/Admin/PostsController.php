@@ -53,13 +53,13 @@ class PostsController extends AppController {
 
                 if ($_FILES['image']['error'] === 4) {
 
-                    if (!empty($_POST['image_slct'])) {
+                    if (!empty($_POST['image_id'])) {
 
                         $resultPost = $this->Post->create([
                             'title'         => $_POST['title'],
                             'content'       => $_POST['content'],
                             'date'          => $date->format('Y-m-d'),
-                            'image_id'      => $_POST['image_slct']
+                            'image_id'      => $_POST['image_id']
                         ]);
 
                         if ($resultPost) {

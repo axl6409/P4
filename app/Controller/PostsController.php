@@ -53,7 +53,7 @@ class PostsController extends AppController {
         $post = $this->Post->find($_GET['id']);
         $comments = $this->Comment->lastByStory($_GET['id']);
         $postImage = $this->PostsImage->find($post->image_id);
-        $form = new BootstrapForm($_POST);
+        $form = new BootstrapForm();
 
         if (!empty($_POST['content'])) {
             $this->Comment->newComment($_POST['content'], $_SESSION['auth'], $_GET['id'], '2', $date->format('Y-m-d H:i:s'));
