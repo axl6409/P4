@@ -1,6 +1,6 @@
 <!--
- -- Public ****************
- -- Main page for Home
+Public ****************
+Main page for Home
  -->
 
 <div class="hero" style="background-image: url('public/assets/<?= $heroImage->name ;?>')"> <!-- Hero -->

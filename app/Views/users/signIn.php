@@ -1,6 +1,6 @@
 <!--
- -- Public ****************
- -- Sign In page
+Public
+Sign In page
  -->
 
 <div class="admin-container container"> <!-- Container -->

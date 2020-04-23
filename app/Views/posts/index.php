@@ -1,6 +1,6 @@
 <!--
- -- Public ****************
- -- Main page for Posts
+Public
+Main page for Posts
  -->
 
 <div class="hero" style="background-image: url('public/assets/<?= $optionImage->name; ?>')"> <!-- Hero -->

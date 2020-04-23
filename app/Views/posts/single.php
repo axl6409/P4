@@ -1,6 +1,6 @@
 <!--
- -- Public ****************
- -- Single Post page
+Public
+Single Post page
  -->
 
 <?php if (!empty($postImage)) { ;?>

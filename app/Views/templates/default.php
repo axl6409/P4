@@ -1,6 +1,6 @@
 <!--
- -- Public ****************
- -- Default Template
+Public ****************
+Default Template
  -->
 
 <?php include 'header.php'; ?>

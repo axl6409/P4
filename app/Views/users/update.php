@@ -1,6 +1,6 @@
 <!--
- -- Public ****************
- -- Update Users Infos
+Public
+Update Users Infos
  -->
 
 <div class="container admin-container"> <!-- Container -->

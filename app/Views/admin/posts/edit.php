@@ -1,6 +1,6 @@
 <!--
- -- Admin ****************
- -- Edit page for posts
+Admin
+Edit page for posts
  -->
 
 <?php if(isset($start)) { ?>

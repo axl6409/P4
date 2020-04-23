@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -121,10 +121,14 @@
                         <a class="nav-link log-link" href="index.php?p=users.signIn">Inscription</a>
                         <span class="sr-only">(current)</span>
                     <?php } ?>
+
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] === '1') { ?>
                 </nav>
+                <?php } else {?>
             </nav>
+            <?php } ?>
 
         </header>
 
 
-        <main role="main">
+        <main>

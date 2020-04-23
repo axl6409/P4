@@ -1,6 +1,6 @@
 <!--
- -- Admin ****************
- -- Main page for images
+Admin
+Main page for images
  -->
 
 <div class="container admin-container"> <!-- Container -->

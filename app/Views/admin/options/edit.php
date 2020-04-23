@@ -1,6 +1,6 @@
 <!--
- -- Admin ****************
- -- Edit page for options
+Admin
+Edit page for options
  -->
 
 <div class="container admin-container"> <!-- Container -->

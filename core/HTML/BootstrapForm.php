@@ -27,7 +27,7 @@ class BootstrapForm extends Form {
         } elseif($type === 'file') {
             $input = '<input type="' . $type . '" name="' . $name . '" class="form-control">';
         } elseif($type === 'message') {
-            $input = '<textarea id="'. $name .'" type="' . $type . '" name="' . $name . '" class="form-control"></textarea>';
+            $input = '<textarea id="'. $name .'" name="' . $name . '" class="form-control"></textarea>';
         } elseif($type === 'password') {
             $input = '<input type="' . $type . '" name="' . $name . '" class="form-control" '.$req.'>';
         } else {

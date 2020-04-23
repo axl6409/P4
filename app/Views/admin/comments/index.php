@@ -1,7 +1,7 @@
 
 <!--
- -- Admin ****************
- -- Main page for comments
+Admin
+Main page for comments
  -->
 
 <div class="container admin-container"> <!-- Container -->
